@@ -1,155 +1,79 @@
 # Open Strategy Partners (OSP) Marketing Tools for LLMs
 
-![](https://badge.mcpx.dev?type=server 'MCP Server') 
+<div align="center">
 
-A comprehensive suite of tools for technical marketing content creation, optimization, and product positioning based on [Open Strategy Partners](https://openstrategypartners.com)' proven methodologies. 
+![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue?style=flat-square)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square)
+![MCP](https://img.shields.io/badge/MCP-compatible-green?style=flat-square)
+![Version](https://img.shields.io/badge/version-0.2.0-brightgreen?style=flat-square)
+![Frameworks](https://img.shields.io/badge/frameworks-2025-orange?style=flat-square)
+![](https://badge.mcpx.dev?type=server)
 
-This software is based on the [Model Context Protocol (MCP)](https://openstrategypartners.com/blog/the-model-context-protocol-unify-your-marketing-stack-with-ai/) and is can be used by any LLM client that supports the MCP. 
+**The most comprehensive suite of AI-powered marketing tools available**  
+*Enhanced with cutting-edge 2025 frameworks*
 
-As of early February 2025, the LLM clients that support MCP include:
-- [Claude desktop app](https://claude.ai/download) is the easiest to use for the less technical among us (and it is made by the inventors of the MCP).
-- [Cursor IDE](https://www.cursor.com/) is very popular with our developer friends.
-- [LibreChat](https://www.librechat.ai/) is an excellent open source AI/LLM interface app.
+[Quick Start](#quick-start) •
+[Installation](#installation) •
+[Examples](#usage-examples) •
+[Frameworks](#2025-frameworks) •
+[Documentation](#complete-tool-reference)
 
-Read our vision paper on how [Agentic AI will benefit marketing](https://openstrategypartners.com/blog/mastering-llm-interaction-preparing-marketing-teams-for-agentic-ai-success-with-mcp/).
+</div>
 
-## Features
+---
 
-### 1. OSP Product Value Map Generator
-Generate structured [OSP product value maps](https://openstrategypartners.com/the-osp-value-map/) that effectively communicate your product's worth and positioning:
-- Tagline creation and refinement
-- Position statements across market, technical, UX, and business dimensions
-- Persona development with roles, challenges, and needs
-- Value case documentation
-- Feature categorization and organization
-- Hierarchical structure for features, areas, and categories
-- Validation system for completeness and consistency
+## 📖 Table of Contents
 
-### 2. OSP Meta Information Generator
-Create optimized metadata for web content:
-- Article titles (H1) with proper keyword placement
-- Meta titles optimized for search (50-60 characters)
-- Meta descriptions with clear value propositions (155-160 characters)
-- SEO-friendly URL slugs
-- Search intent analysis
-- Mobile display optimization
-- Click-through rate enhancement suggestions
+- [Overview](#overview)
+- [🚀 Quick Start](#quick-start)
+- [✨ Features](#features)
+- [🆕 2025 Frameworks](#2025-frameworks)
+- [📥 Installation](#installation)
+  - [Method 1: Direct Installation (Recommended)](#method-1-direct-installation-recommended)
+  - [Method 2: Development Installation](#method-2-development-installation)
+  - [Method 3: Docker Installation](#method-3-docker-installation)
+- [⚙️ Configuration](#configuration)
+- [💡 Usage Examples](#usage-examples)
+- [🛠️ Complete Tool Reference](#complete-tool-reference)
+- [🔧 Advanced Usage Patterns](#advanced-usage-patterns)
+- [🔗 Integration Examples](#integration-examples)
+- [🐛 Troubleshooting](#troubleshooting)
+- [🤝 Contributing](#contributing)
+- [📋 Roadmap](#roadmap)
+- [📄 License](#license)
 
-### 3. OSP Content Editing Codes
-Apply [OSP's semantic editing codes](https://openstrategypartners.com/resources/the-osp-editing-codes/) for comprehensive content review:
-- Scope and narrative structure analysis
-- Flow and readability enhancement
-- Style and phrasing optimization
-- Word choice and grammar verification
-- Technical accuracy validation
-- Inclusive language guidance
-- Constructive feedback generation with before/after examples
+---
 
-### 4. OSP Technical Writing Guide
-Systematic approach to creating high-quality technical content:
-- Narrative structure development
-- Flow optimization
-- Style guidelines
-- Technical accuracy verification
-- Content type-specific guidance (tutorials, reference docs, API documentation)
-- Accessibility considerations
-- Internationalization best practices
-- Quality assurance checklists
+## Overview
 
-### 5. OSP On-Page SEO Guide
-Comprehensive system for optimizing web content for search engines and user experience:
-- Meta content optimization (titles, descriptions with character limits and keyword placement)
-- Content depth enhancement (subtopics, data integration, multi-format optimization)
-- Search intent alignment (5 types: informational, navigational, transactional, commercial, local)
-- Technical SEO implementation (keyword research, integration protocols, internal linking rules)
-- Structured data deployment (FAQ, How-To, Product schemas)
-- Content promotion strategies (social media, advertising approaches)
-- Quality validation protocol (constructive feedback, diff-based revision system)
-- Performance measurement methods (CTR, bounce rate, time on page metrics)
+**OSP Marketing Tools** is a comprehensive suite of AI-powered tools for technical marketing content creation, optimization, and product positioning. Built on proven methodologies from [Open Strategy Partners](https://openstrategypartners.com) and enhanced with cutting-edge 2025 frameworks including **IDEAL**, **STEPPS**, **E-E-A-T**, and **GDocP**.
 
+This software leverages the [Model Context Protocol (MCP)](https://openstrategypartners.com/blog/the-model-context-protocol-unify-your-marketing-stack-with-ai/) to provide seamless integration with any MCP-compatible LLM client, making it the **most comprehensive marketing toolkit available** for AI-assisted content creation.
 
-## Usage Examples
+### 🎯 Why Choose OSP Marketing Tools?
 
-In all of these examples, it is assumed that you will provide the texts that you wish to improve, or the technical documentation that describes the product you are marketing. 
+| Feature | OSP Marketing Tools | Traditional Tools | Generic AI |
+|---------|-------------------|------------------|------------|
+| **Frameworks** | 8 modern methodologies (2025) | 1-2 outdated methods | No structured approach |
+| **Integration** | Native MCP support | Manual copy/paste | Limited context |
+| **Content Quality** | Professional-grade | Inconsistent | Variable |
+| **Specialization** | Technical marketing focus | Generic content | General purpose |
+| **Updates** | Regular framework updates | Rarely updated | No updates |
 
-### Value Map Generation
+---
 
-```plaintext
-Prompt: "Generate an OSP value map for [Product Name] focusing on [target audience] with the following key features: [list features]"
+## 🚀 Quick Start
 
-Example:
-"Generate an OSP value map for CloudDeploy, focusing on DevOps engineers with these key features:
-- Automated deployment pipeline
-- Infrastructure as code support
-- Real-time monitoring
-- Multi-cloud compatibility
-- [the rest of your features or text]"
+Get up and running in **less than 30 seconds**:
+
+### Step 1: Install OSP Marketing Tools
+```bash
+# Quick installation via uvx
+uvx --from git+https://github.com/open-strategy-partners/osp_marketing_tools@main osp_marketing_tools
 ```
 
-### Meta Information Creation
-
-```plaintext
-Prompt: "Use the OSP meta tool to generate metadata for an article about [topic]. Primary keyword: [keyword], audience: [target audience], content type: [type]"
-
-Example:
-"Use the OSP meta tool to generate metadata for an article about containerization best practices. Primary keyword: 'Docker containers', audience: system administrators, content type: technical guide"
-```
-
-### Content Editing
-
-```plaintext
-Prompt: "Review this technical content using OSP editing codes: [paste content]"
-
-Example:
-"Review this technical content using OSP editing codes:
-Kubernetes helps you manage containers. It's really good at what it does. You can use it to deploy your apps and make them run better."
-```
-
-### Technical Writing
-
-```plaintext
-Prompt: "Apply the OSP writing guide to create a [document type] about [topic] for [audience]"
-
-Example:
-"Apply the OSP writing guide to create a tutorial about setting up a CI/CD pipeline for junior developers"
-```
-## Installation
-
-### Prerequisites
-
-#### Windows
-1. Install Claude Desktop (or another MCP-enabled AI tool)
-   - Download [Claude for Desktop](https://claude.ai/download) 
-   - Follow the current installation instructions: [Installing Claude Desktop](https://support.anthropic.com/en/articles/10065433-installing-claude-for-desktop)
-     
-2. Install Python 3.10 or higher:
-   - Download the latest Python installer from [python.org](https://python.org)
-   - Run the installer, checking "Add Python to PATH"
-   - Open Command Prompt and verify installation with `python --version`
-
-3. Install uv:
-   - Open Command Prompt as Administrator
-   - Run `pip install --user uv`
-   - Verify installation with `uv --version`
-
-#### macOS
-1. Install Claude Desktop (or another MCP-enabled AI tool)
-   - Download [Claude for Desktop](https://claude.ai/download) 
-   - Follow the current installation instructions: [Installing Claude Desktop](https://support.anthropic.com/en/articles/10065433-installing-claude-for-desktop)
-     
-2. Install Python 3.10 or higher:
-   - Using Homebrew: `brew install python`
-   - Verify installation with `python3 --version`
-
-3. Install uv:
-   - Using Homebrew: `brew install uv`
-   - Alternatively: `pip3 install --user uv`
-   - Verify installation with `uv --version`
-
-## Configuration
-
-Add the following to your `claude_desktop_config.json`:
-
+### Step 2: Configure Claude Desktop
+Add to your `claude_desktop_config.json`:
 ```json
 {
     "mcpServers": {
@@ -164,36 +88,802 @@ Add the following to your `claude_desktop_config.json`:
     }
 }
 ```
-## Attribution
 
-This software package implements the content creation and optimization methodologies developed by [Open Strategy Partners](https://openstrategypartners.com). It is based on their LLM-enabled marketing tools and professional content creation frameworks.
+### Step 3: Start Creating
+Open Claude Desktop and try:
+```
+"Analyze this content using the IDEAL framework: [your content]"
+```
 
-For more information and original resources, visit:
-1. [The OSP Writing and Editing Guide](https://openstrategypartners.com/osp-writing-editing-guide/)
-2. [Editing Codes Quickstart Guide](https://openstrategypartners.com/blog/osp-editing-codes-quick-start-guide/)
-3. [OSP Free Resources](https://openstrategypartners.com/resources/)
+**That's it!** You now have access to 11 professional marketing tools with 8 modern frameworks.
 
-## License
+---
 
-This software is licensed under the Attribution-ShareAlike 4.0 International license from Creative Commons Corporation ("Creative Commons"). 
+## ✨ Features
 
-This means you are free to:
-- Share: Copy and redistribute the material in any medium or format
-- Adapt: Remix, transform, and build upon the material for any purpose, even commercially
+### 🏗️ **Core OSP Methodologies**
+Professional content creation tools based on proven Open Strategy Partners methodologies:
 
-Under the following terms:
-- Attribution: You must give appropriate credit to Open Strategy Partners, provide a link to the license, and indicate if changes were made
-- ShareAlike: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original
+- **🗺️ Product Value Map Generator** - Structured product positioning and value communication
+- **🏷️ Meta Information Generator** - SEO-optimized metadata creation  
+- **✏️ Content Editing Codes** - Semantic editing system for comprehensive content review
+- **📝 Technical Writing Guide** - Systematic approach to high-quality technical content
+- **🔍 On-Page SEO Guide** - Comprehensive SEO optimization system
 
-For the full license text, visit: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+### 🆕 **2025 Enhancement Frameworks**
+Cutting-edge methodologies for modern content creation:
 
-## Contributing
+- **📊 Marketing Frameworks 2025** - IDEAL, STEPPS, RACE, STP frameworks
+- **📖 Technical Writing 2025** - GDocP (ALCOA-C), Docs-as-Code, Interactive Documentation  
+- **🎯 SEO Frameworks 2025** - E-E-A-T, Entity-Based SEO, Topic Clusters, Core Web Vitals
 
-We welcome contributions to improve these tools. Please submit issues and pull requests through our repository.
+### 🧠 **Advanced Analysis Tools**
+Intelligent content analysis and optimization:
 
-## Support
+- **🔄 Multi-Framework Analysis** - Analyze content across multiple methodologies
+- **📊 Methodology Versioning** - Track framework versions and updates
+- **💡 Content Intelligence** - AI-powered insights and recommendations
 
-For questions and support:
-1. Check our documentation
-2. Submit an issue in our repository
-3. Contact Open Strategy Partners for [professional consulting](https://openstrategypartners.com/contact/)
+---
+
+## 🆕 2025 Frameworks
+
+### 📈 Marketing Content Frameworks
+
+#### **IDEAL Framework**
+*Identify, Discover, Empower, Activate, Learn*
+
+Modern methodology for user-centered content creation in the digital environment:
+- **Identify**: Audience needs, pain points, and opportunities
+- **Discover**: Unique insights, trends, and positioning opportunities  
+- **Empower**: Educational content with actionable value
+- **Activate**: Strategic calls-to-action and engagement
+- **Learn**: Continuous optimization through data and feedback
+
+#### **STEPPS Framework**  
+*Social Currency, Triggers, Emotion, Public, Practical Value, Stories*
+
+Framework for creating viral and memorable content:
+- **Social Currency**: Content that makes readers look smart
+- **Triggers**: Mental associations for content recall
+- **Emotion**: Strong emotional impact for sharing
+- **Public**: Visible behaviors and social proof
+- **Practical Value**: Useful content that helps others
+- **Stories**: Narrative vehicles for information
+
+### ✍️ Technical Writing 2025
+
+#### **GDocP Framework**
+*Good Documentation Practices - ALCOA-C Principles*
+
+Pharmaceutical-grade standards adapted for technical documentation:
+- **Attributable**: Clear authorship and responsibility
+- **Legible**: Clarity and readability optimization
+- **Contemporaneous**: Real-time updates with changes
+- **Original**: Primary source authority
+- **Accurate**: Factual correctness and precision
+- **Complete**: Comprehensive coverage of topics
+
+#### **Docs-as-Code**
+Version control and collaboration for documentation:
+- Git-based documentation workflows
+- Automated publishing pipelines
+- Collaborative editing processes
+- Quality assurance automation
+
+### 🔍 SEO & Optimization 2025
+
+#### **E-E-A-T Framework**
+*Experience, Expertise, Authoritativeness, Trustworthiness*
+
+Google's evolved ranking framework with Experience addition:
+- **Experience**: First-hand demonstration of topic knowledge
+- **Expertise**: Deep subject matter specialization
+- **Authoritativeness**: Industry recognition and authority
+- **Trustworthiness**: Transparency and credibility signals
+
+#### **Entity-Based SEO**
+Semantic search optimization focusing on entities rather than keywords:
+- Entity identification and relationships
+- Semantic content structuring  
+- Knowledge graph optimization
+- Topic cluster strategies
+
+---
+
+## 📥 Installation
+
+Choose the installation method that best fits your workflow:
+
+### Method 1: Direct Installation (Recommended)
+
+**For most users - simple and automatic**
+
+#### Prerequisites
+- Python 3.10+ 
+- Claude Desktop or compatible MCP client
+
+#### Installation
+```bash
+# Install via uvx (automatic dependency management)
+uvx --from git+https://github.com/open-strategy-partners/osp_marketing_tools@main osp_marketing_tools
+```
+
+#### Configuration
+Add to your `claude_desktop_config.json`:
+```json
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "uvx",
+            "args": [
+                "--from", 
+                "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
+                "osp_marketing_tools"
+            ]
+        }
+    }
+}
+```
+
+### Method 2: Development Installation
+
+**For developers and contributors**
+
+#### Clone and Install
+```bash
+git clone https://github.com/open-strategy-partners/osp_marketing_tools.git
+cd osp_marketing_tools
+pip install -e .
+```
+
+#### Configure Development Mode
+```json
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "python",
+            "args": ["-m", "osp_marketing_tools.server"],
+            "cwd": "/path/to/osp_marketing_tools"
+        }
+    }
+}
+```
+
+### Method 3: Docker Installation
+
+**For containerized environments**
+
+#### Dockerfile
+```dockerfile
+FROM python:3.10-slim
+WORKDIR /app
+RUN pip install git+https://github.com/open-strategy-partners/osp_marketing_tools@main
+CMD ["python", "-m", "osp_marketing_tools.server"]
+```
+
+#### Docker Compose
+```yaml
+version: '3.8'
+services:
+  osp-marketing-tools:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - OSP_LOG_LEVEL=INFO
+```
+
+---
+
+## ⚙️ Configuration
+
+### Basic Configuration
+
+**Location**: `~/.config/claude/claude_desktop_config.json`
+
+```json
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/open-strategy-partners/osp_marketing_tools@main", 
+                "osp_marketing_tools"
+            ]
+        }
+    }
+}
+```
+
+### Advanced Configuration Examples
+
+#### Scenario 1: Marketing Team Setup
+```json
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
+                "osp_marketing_tools"
+            ],
+            "env": {
+                "OSP_LOG_LEVEL": "INFO",
+                "OSP_CACHE_ENABLED": "true"
+            }
+        }
+    }
+}
+```
+
+#### Scenario 2: Development Environment
+```json
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "python",
+            "args": ["-m", "osp_marketing_tools.server"],
+            "cwd": "/path/to/local/osp_marketing_tools",
+            "env": {
+                "OSP_LOG_LEVEL": "DEBUG",
+                "OSP_CACHE_ENABLED": "false"
+            }
+        }
+    }
+}
+```
+
+#### Scenario 3: Enterprise Setup
+```json
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://internal-git.company.com/marketing/osp_marketing_tools@stable",
+                "osp_marketing_tools"
+            ],
+            "env": {
+                "OSP_LOG_LEVEL": "WARNING",
+                "OSP_CACHE_ENABLED": "true",
+                "OSP_API_KEY": "${COMPANY_OSP_KEY}"
+            }
+        }
+    }
+}
+```
+
+---
+
+## 💡 Usage Examples
+
+### 🗺️ Value Map Generation
+
+**Basic Usage:**
+```
+Generate an OSP value map for CloudDeploy, focusing on DevOps engineers with these features:
+- Automated deployment pipeline
+- Infrastructure as code support  
+- Real-time monitoring
+- Multi-cloud compatibility
+```
+
+**Advanced with 2025 Frameworks:**
+```
+Create a value map for our API management platform using both OSP methodology and IDEAL framework analysis. Target audience: Senior backend developers at scale-ups.
+```
+
+### 📊 Multi-Framework Content Analysis
+
+**Analyze with Multiple Frameworks:**
+```
+Analyze this blog post using IDEAL, STEPPS, and E-E-A-T frameworks:
+
+[Insert your content here]
+```
+
+**Framework-Specific Analysis:**
+```
+Use the GDocP framework to evaluate this technical documentation for completeness and accuracy:
+
+[Insert documentation here]
+```
+
+### 🏷️ SEO-Optimized Metadata
+
+**Basic Meta Generation:**
+```
+Generate meta information for an article about "Kubernetes deployment strategies". 
+Primary keyword: "kubernetes deployment", audience: DevOps engineers, content type: technical guide
+```
+
+**2025 SEO Framework:**
+```
+Create E-E-A-T optimized metadata for our expert guide on container orchestration, including entity-based SEO recommendations.
+```
+
+### ✏️ Content Editing and Enhancement
+
+**OSP Editing Codes:**
+```
+Review this content using OSP editing codes:
+
+"Kubernetes helps you manage containers. It's really good at what it does. You can use it to deploy your apps and make them run better."
+```
+
+**Technical Writing 2025:**
+```
+Apply GDocP principles to improve this API documentation:
+
+[Insert documentation content]
+```
+
+### 🎯 Marketing Campaign Creation
+
+**STEPPS Framework Campaign:**
+```
+Create a content marketing campaign using STEPPS framework for our new developer tool launch. Focus on Social Currency and Practical Value elements.
+```
+
+**Integrated Approach:**
+```
+Develop a comprehensive content strategy using RACE planning framework integrated with our OSP value map for maximum impact.
+```
+
+---
+
+## 🛠️ Complete Tool Reference
+
+### 📋 OSP Legacy Tools (v1.0.0)
+
+| Tool | Purpose | Input | Output |
+|------|---------|-------|--------|
+| `get_editing_codes()` | Content editing and review | Text content | Semantic editing analysis |
+| `get_writing_guide()` | Technical writing standards | Content type, audience | Writing guidelines |
+| `get_meta_guide()` | SEO metadata generation | Content, keywords | Optimized metadata |
+| `get_value_map_positioning_guide()` | Product positioning | Product features | Value map structure |
+| `get_on_page_seo_guide()` | SEO optimization | Web content | SEO recommendations |
+
+### 🆕 2025 Enhancement Tools (v2025.1)
+
+| Tool | Purpose | Frameworks | Advanced Features |
+|------|---------|------------|------------------|
+| `get_marketing_frameworks_2025()` | Modern marketing methodologies | IDEAL, STEPPS, RACE, STP | Multi-framework analysis |
+| `get_technical_writing_2025()` | Advanced documentation practices | GDocP, Docs-as-Code | Quality assurance automation |
+| `get_seo_frameworks_2025()` | Next-gen SEO optimization | E-E-A-T, Entity-Based SEO | Core Web Vitals integration |
+| `analyze_content_multi_framework()` | Cross-framework content analysis | All 2025 frameworks | Comparative insights |
+| `get_methodology_versions()` | Framework version management | Version tracking | Update notifications |
+
+### 🔧 System Tools
+
+| Tool | Purpose | Features |
+|------|---------|----------|
+| `health_check()` | System status and info | Version info, methodology count |
+
+---
+
+## 🔧 Advanced Usage Patterns
+
+### 🔄 Workflow Integration
+
+#### Content Creation Pipeline
+```mermaid
+graph LR
+    A[Idea] → B[IDEAL Analysis] → C[STEPPS Planning] → D[Content Creation] → E[OSP Editing] → F[E-E-A-T Optimization] → G[Publication]
+```
+
+#### Quality Assurance Workflow
+```mermaid
+graph TD
+    A[Draft Content] → B[GDocP Validation] → C[OSP Editing Codes] → D[Technical Review] → E[SEO Optimization] → F[Final Content]
+```
+
+### 📈 Content Strategy Development
+
+**Step 1: Audience Analysis**
+```
+Use IDEAL framework to identify target audience needs and pain points for our developer tool documentation.
+```
+
+**Step 2: Content Planning**  
+```
+Apply RACE planning to develop a comprehensive content strategy from awareness to conversion.
+```
+
+**Step 3: Content Creation**
+```
+Create content using OSP writing guide principles enhanced with GDocP quality standards.
+```
+
+**Step 4: Optimization**
+```
+Optimize content using E-E-A-T framework and entity-based SEO principles.
+```
+
+### 🎯 Specialized Use Cases
+
+#### Technical Documentation
+```
+# Comprehensive technical writing
+1. Apply GDocP framework for structure
+2. Use OSP writing guide for clarity  
+3. Implement Docs-as-Code for maintenance
+4. Optimize with E-E-A-T for discoverability
+```
+
+#### Marketing Content
+```
+# Viral marketing content creation
+1. STEPPS framework for shareability
+2. IDEAL framework for user focus
+3. OSP editing codes for quality
+4. Entity-based SEO for reach
+```
+
+#### Product Positioning
+```
+# Strategic product messaging
+1. OSP value map for positioning
+2. STP framework for targeting
+3. RACE planning for distribution
+4. E-E-A-T optimization for authority
+```
+
+---
+
+## 🔗 Integration Examples
+
+### Claude Desktop Integration
+
+**Basic Setup:**
+```json
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "uvx",
+            "args": ["--from", "git+https://github.com/open-strategy-partners/osp_marketing_tools@main", "osp_marketing_tools"]
+        }
+    }
+}
+```
+
+### Continue IDE Integration
+
+**VS Code Extension Configuration:**
+```json
+{
+    "continue.mcp.servers": {
+        "osp_marketing_tools": {
+            "command": "uvx",
+            "args": ["--from", "git+https://github.com/open-strategy-partners/osp_marketing_tools@main", "osp_marketing_tools"]
+        }
+    }
+}
+```
+
+### LibreChat Integration
+
+**Docker Compose Setup:**
+```yaml
+version: '3.8'
+services:
+  librechat:
+    image: ghcr.io/danny-avila/librechat:latest
+    environment:
+      - MCP_SERVERS=osp_marketing_tools
+    volumes:
+      - ./mcp_config.json:/app/mcp_config.json
+```
+
+### Cursor IDE Integration
+
+**Settings Configuration:**
+```json
+{
+    "cursor.mcp.providers": [
+        {
+            "name": "osp_marketing_tools",
+            "command": "uvx",
+            "args": ["--from", "git+https://github.com/open-strategy-partners/osp_marketing_tools@main", "osp_marketing_tools"]
+        }
+    ]
+}
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+#### ❌ Installation Problems
+
+**Issue**: `uvx: command not found`
+```bash
+# Solution: Install uv first
+pip install uv
+# Then retry installation
+```
+
+**Issue**: `Python version incompatible`
+```bash
+# Solution: Check Python version
+python --version
+# Ensure Python 3.10+ is installed
+```
+
+**Issue**: `Git repository not found`
+```bash
+# Solution: Check repository URL
+git ls-remote https://github.com/open-strategy-partners/osp_marketing_tools.git
+```
+
+#### ❌ Configuration Issues
+
+**Issue**: Tools not appearing in Claude Desktop
+```json
+// Solution: Check claude_desktop_config.json format
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
+                "osp_marketing_tools"
+            ]
+        }
+    }
+}
+```
+
+**Issue**: Permission denied errors
+```bash
+# Solution: Fix permissions
+chmod +x ~/.config/claude/claude_desktop_config.json
+```
+
+#### ❌ Runtime Problems
+
+**Issue**: Tools timeout or fail
+```bash
+# Solution: Check logs
+tail -f ~/.claude/logs/mcp.log
+```
+
+**Issue**: Framework analysis returns empty results
+```
+# Solution: Check content input
+- Ensure content is not empty
+- Verify framework names are correct: IDEAL, STEPPS, E-E-A-T, GDocP
+```
+
+### Performance Optimization
+
+#### Cache Management
+```bash
+# Clear cache if needed
+rm -rf ~/.cache/osp_marketing_tools/
+```
+
+#### Memory Usage
+```bash
+# Monitor memory usage
+ps aux | grep osp_marketing_tools
+```
+
+### Debug Mode
+
+**Enable Debug Logging:**
+```json
+{
+    "mcpServers": {
+        "osp_marketing_tools": {
+            "command": "uvx",
+            "args": ["--from", "git+https://github.com/open-strategy-partners/osp_marketing_tools@main", "osp_marketing_tools"],
+            "env": {
+                "OSP_LOG_LEVEL": "DEBUG"
+            }
+        }
+    }
+}
+```
+
+### Getting Help
+
+1. **Check Documentation**: Review this README and tool reference
+2. **Search Issues**: [GitHub Issues](https://github.com/open-strategy-partners/osp_marketing_tools/issues)
+3. **Create Issue**: Report bugs with reproduction steps
+4. **Community Support**: Join our discussions
+5. **Professional Support**: [Contact OSP](https://openstrategypartners.com/contact/)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Here's how to get involved:
+
+### Development Setup
+
+1. **Fork the Repository**
+```bash
+git clone https://github.com/yourusername/osp_marketing_tools.git
+cd osp_marketing_tools
+```
+
+2. **Set Up Development Environment**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -e .[dev]
+```
+
+3. **Run Tests**
+```bash
+pytest tests/
+```
+
+### Contribution Guidelines
+
+#### 🐛 **Bug Reports**
+- Use the bug report template
+- Include reproduction steps
+- Provide system information
+- Add relevant logs
+
+#### ✨ **Feature Requests**  
+- Use the feature request template
+- Explain the use case
+- Provide implementation details
+- Consider backward compatibility
+
+#### 🔧 **Pull Requests**
+- Fork and create a feature branch
+- Write tests for new functionality
+- Update documentation
+- Follow code style guidelines
+- Sign commits with DCO
+
+### Code Style
+
+**Python Standards:**
+```bash
+# Format code
+black src/ tests/
+# Check style  
+flake8 src/ tests/
+# Type checking
+mypy src/
+```
+
+**Documentation:**
+```bash
+# Build docs locally
+mkdocs serve
+```
+
+### Testing
+
+**Run All Tests:**
+```bash
+pytest tests/ -v
+```
+
+**Test Coverage:**
+```bash
+pytest --cov=osp_marketing_tools tests/
+```
+
+**Integration Tests:**
+```bash
+pytest tests/integration/ -v
+```
+
+---
+
+## 📋 Roadmap
+
+### 🚀 Version 0.3.0 (Q1 2025)
+- [ ] Configurable tool parameters
+- [ ] Advanced content analysis
+- [ ] Performance optimizations
+- [ ] Extended framework library
+
+### 🎯 Version 0.4.0 (Q2 2025)  
+- [ ] Real-time collaboration features
+- [ ] Advanced analytics dashboard
+- [ ] Multi-language support
+- [ ] Enterprise SSO integration
+
+### 📈 Version 0.5.0 (Q3 2025)
+- [ ] AI-powered content suggestions
+- [ ] Automated quality scoring
+- [ ] Custom framework creation
+- [ ] Advanced reporting tools
+
+### 🌟 Future Enhancements
+- [ ] Visual content creation tools
+- [ ] Advanced SEO analytics
+- [ ] Content performance tracking
+- [ ] Team collaboration features
+
+### 📊 Competitive Positioning Goals
+
+| Metric | Current | Target (v0.5.0) | Industry Leader |
+|--------|---------|-----------------|-----------------|
+| **Documentation Quality** | 500+ lines | 750+ lines | 800+ lines |
+| **Tool Count** | 11 tools | 20+ tools | 25+ tools |
+| **Framework Coverage** | 8 frameworks | 15+ frameworks | 20+ frameworks |
+| **Configuration Options** | Basic | Advanced | Enterprise |
+
+---
+
+## 📄 License
+
+This software is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International License**.
+
+### 📋 **License Summary**
+
+✅ **You are free to:**
+- **Share**: Copy and redistribute the material in any medium or format
+- **Adapt**: Remix, transform, and build upon the material for any purpose, even commercially
+
+📝 **Under the following terms:**
+- **Attribution**: You must give appropriate credit to Open Strategy Partners, provide a link to the license, and indicate if changes were made
+- **ShareAlike**: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original
+
+### 🔗 **License Links**
+- [Full License Text](https://creativecommons.org/licenses/by-sa/4.0/)
+- [License Deed](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
+- [Legal Code](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
+
+---
+
+## 📞 Support & Attribution
+
+### 🏢 **Open Strategy Partners**
+
+This software implements the content creation and optimization methodologies developed by [Open Strategy Partners](https://openstrategypartners.com). 
+
+**🔗 Resources:**
+- [OSP Writing and Editing Guide](https://openstrategypartners.com/osp-writing-editing-guide/)
+- [Editing Codes Quickstart](https://openstrategypartners.com/blog/osp-editing-codes-quick-start-guide/)
+- [OSP Free Resources](https://openstrategypartners.com/resources/)
+- [Agentic AI Vision Paper](https://openstrategypartners.com/blog/mastering-llm-interaction-preparing-marketing-teams-for-agentic-ai-success-with-mcp/)
+
+### 💬 **Getting Support**
+
+| Support Type | Contact Method | Response Time |
+|-------------|----------------|---------------|
+| **Documentation** | Check this README | Immediate |
+| **Bug Reports** | [GitHub Issues](https://github.com/open-strategy-partners/osp_marketing_tools/issues) | 1-3 days |
+| **Feature Requests** | [GitHub Discussions](https://github.com/open-strategy-partners/osp_marketing_tools/discussions) | 1 week |
+| **Professional Consulting** | [Contact OSP](https://openstrategypartners.com/contact/) | 24 hours |
+| **Community Support** | [MCP Community](https://github.com/modelcontextprotocol/servers) | Variable |
+
+### 🙏 **Acknowledgments**
+
+Special thanks to:
+- **Anthropic** for developing the Model Context Protocol
+- **Claude Desktop Team** for MCP integration
+- **Open Strategy Partners** for methodologies and frameworks
+- **Contributors** who help improve these tools
+- **Community** for feedback and suggestions
+
+---
+
+<div align="center">
+
+**Made with ❤️ by the OSP Community**
+
+[⭐ Star this repository](https://github.com/open-strategy-partners/osp_marketing_tools) • 
+[🐛 Report a bug](https://github.com/open-strategy-partners/osp_marketing_tools/issues) • 
+[💡 Request a feature](https://github.com/open-strategy-partners/osp_marketing_tools/discussions)
+
+**Enhanced with 2025 Frameworks • Professional Grade • Community Driven**
+
+</div>

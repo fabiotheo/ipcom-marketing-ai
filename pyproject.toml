@@ -4,15 +4,14 @@ build-backend = "hatchling.build"
 
 [project]
 name = "osp-marketing-tools"
-version = "0.1.0"
-description = "OSP Marketing Tools using Model Context Protocol"
+version = "0.2.2"
+description = "OSP Marketing Tools using Model Context Protocol - Enhanced with 2025 Frameworks"
 authors = [
-    {name = "Robert Douglass, Tracy Evans, Jeffrey McGuire, other Open Srategy Partners contributors"}
+    {name = "Robert Douglass, Tracy Evans, Jeffrey McGuire, other Open Strategy Partners contributors"}
 ]
 requires-python = ">=3.10,<3.14"
 dependencies = [
-    "mcp[cli]",
-    "aiohttp==3.11.11"
+    "mcp[cli]>=1.2.0"
 ]
 
 [project.scripts]

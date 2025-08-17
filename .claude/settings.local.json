@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__octocode__githubSearchRepositories",
+      "mcp__octocode__githubSearchCode",
+      "mcp__zen__analyze",
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "WebSearch",
+      "mcp__octocode__packageSearch",
+      "mcp__octocode__githubViewRepoStructure",
+      "mcp__octocode__githubGetFileContent",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "mcp__zen__codereview",
+      "Bash(grep:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
