@@ -1093,7 +1093,6 @@ async def analyze_content_batch(
         default_frameworks: Default frameworks to use if not specified per item
         priority: Priority level for this batch (higher = processed first)
     """
-    from .batch import batch_manager
 
     logger.info(f"Starting batch analysis: {batch_id} with {len(content_items)} items")
 
@@ -1149,7 +1148,6 @@ async def analyze_content_batch(
 @handle_exceptions
 async def get_batch_status() -> Dict[str, Any]:
     """Get status of active batch processing operations."""
-    from .batch import batch_manager
 
     active_batches = batch_manager.get_active_batches()
     batch_history = batch_manager.get_batch_history(limit=5)
@@ -1178,7 +1176,6 @@ async def cancel_batch(batch_id: str) -> Dict[str, Any]:
     Args:
         batch_id: ID of the batch to cancel
     """
-    from .batch import batch_manager
 
     if not batch_id or not batch_id.strip():
         raise ValueError("batch_id is required and cannot be empty")

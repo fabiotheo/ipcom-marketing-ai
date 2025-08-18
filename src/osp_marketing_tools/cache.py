@@ -412,7 +412,7 @@ class LRUCache:
         # Create a unique cache instance for each LRUCache instance
         import uuid
 
-        unique_id = f"legacy_{uuid.uuid4().hex[:8]}"
+        _unique_id = f"legacy_{uuid.uuid4().hex[:8]}"  # noqa: F841
         self._cache = AdvancedLRUCache(
             max_size=max_size,
             ttl_seconds=86400,  # Long TTL for legacy compatibility

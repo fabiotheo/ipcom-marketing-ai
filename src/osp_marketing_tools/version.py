@@ -2,6 +2,7 @@
 
 import sys
 from pathlib import Path
+from typing import Any, Dict
 
 # Handle Python 3.10 compatibility (tomllib available from 3.11+)
 if sys.version_info >= (3, 11):
@@ -10,7 +11,8 @@ else:
     try:
         import tomli as tomllib
     except ImportError:
-        import tomllib  # fallback, will fail gracefully
+        # This should not happen in normal circumstances due to pyproject.toml dependency
+        raise ImportError("tomli package required for Python < 3.11")
 
 
 def get_version() -> str:
@@ -22,7 +24,7 @@ def get_version() -> str:
             pyproject_path = current_path / "pyproject.toml"
             if pyproject_path.exists():
                 with open(pyproject_path, "rb") as f:
-                    data = tomllib.load(f)
+                    data: Dict[str, Any] = tomllib.load(f)
                     return str(data["project"]["version"])
             current_path = current_path.parent
 
@@ -31,8 +33,8 @@ def get_version() -> str:
         pyproject_path = root_path / "pyproject.toml"
         if pyproject_path.exists():
             with open(pyproject_path, "rb") as f:
-                data = tomllib.load(f)
-                return str(data["project"]["version"])
+                project_data: Dict[str, Any] = tomllib.load(f)
+                return str(project_data["project"]["version"])
 
         # Last fallback
         return "0.3.0"
