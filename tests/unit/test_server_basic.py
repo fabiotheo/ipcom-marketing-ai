@@ -4,11 +4,17 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from osp_marketing_tools.server import (METHODOLOGY_VERSIONS, VALID_FRAMEWORKS,
-                                        CacheError, ContentValidationError,
-                                        FileOperationError,
-                                        FrameworkValidationError, LRUCache,
-                                        OSPToolsError, _create_config_note)
+from osp_marketing_tools.server import (
+    METHODOLOGY_VERSIONS,
+    VALID_FRAMEWORKS,
+    CacheError,
+    ContentValidationError,
+    FileOperationError,
+    FrameworkValidationError,
+    LRUCache,
+    OSPToolsError,
+    _create_config_note,
+)
 
 
 class TestLRUCacheBasic:

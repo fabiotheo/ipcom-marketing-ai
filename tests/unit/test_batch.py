@@ -7,9 +7,14 @@ from unittest.mock import AsyncMock, Mock, patch
 
 import pytest
 
-from osp_marketing_tools.batch import (BatchAnalysisManager, BatchItem,
-                                       BatchProcessor, BatchProgress,
-                                       BatchResult, batch_manager)
+from osp_marketing_tools.batch import (
+    BatchAnalysisManager,
+    BatchItem,
+    BatchProcessor,
+    BatchProgress,
+    BatchResult,
+    batch_manager,
+)
 from osp_marketing_tools.config import BatchProcessingConfig
 
 
