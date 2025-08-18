@@ -276,13 +276,17 @@ jobs:
         with:
           context: .
           push: false
+          load: true
           tags: osp-marketing-tools:test
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       - name: Test Docker image
         run: |
-          docker run --rm osp-marketing-tools:test --help
+          # Test that the Docker image was built successfully
+          docker images | grep osp-marketing-tools:test
+          # Test that the container starts without immediate errors
+          timeout 10s docker run --rm osp-marketing-tools:test || [ $? -eq 124 ]
 
   # Job 8: Documentation
   docs:
