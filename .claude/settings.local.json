@@ -30,7 +30,9 @@
       "Bash(git remote set-url:*)",
       "Bash(npm version:*)",
       "WebFetch(domain:github.com)",
-      "Bash(mkdocs build:*)"
+      "Bash(mkdocs build:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)"
     ],
     "deny": [],
     "ask": []

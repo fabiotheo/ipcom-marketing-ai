@@ -1,7 +1,16 @@
 """Version management for OSP Marketing Tools."""
 
-import tomllib  # type: ignore
+import sys
 from pathlib import Path
+
+# Handle Python 3.10 compatibility (tomllib available from 3.11+)
+if sys.version_info >= (3, 11):
+    import tomllib
+else:
+    try:
+        import tomli as tomllib
+    except ImportError:
+        import tomllib  # fallback, will fail gracefully
 
 
 def get_version() -> str:

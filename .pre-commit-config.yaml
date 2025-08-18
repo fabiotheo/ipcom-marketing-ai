@@ -163,8 +163,9 @@ repos:
         args:
           [
             "-c",
-            'import tomllib; import sys; f = open(''pyproject.toml'', ''rb'');
-            data = tomllib.load(f); f.close(); print(f''✅ Version
+            'import sys; tomllib = __import__(''tomllib'' if sys.version_info >=
+            (3,11) else ''tomli''); f = open(''pyproject.toml'', ''rb''); data =
+            tomllib.load(f); f.close(); print(f''✅ Version
             {data["project"]["version"]} consistent'')',
           ]
         pass_filenames: false
