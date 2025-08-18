@@ -36,7 +36,7 @@ class TestMCPBasicFunctions:
         assert "timestamp" in result
         assert "version" in result
         assert result["status"] in ["healthy", "warning", "critical"]
-        assert result["version"] == "0.2.2"
+        assert result["version"] == "0.3.0"
 
     @pytest.mark.asyncio
     async def test_get_methodology_versions(self):
@@ -262,6 +262,11 @@ class TestMCPErrorHandling:
     @pytest.mark.asyncio
     async def test_resource_file_not_found(self):
         """Test handling of missing resource files."""
+        from osp_marketing_tools.server import CONTENT_CACHE
+        
+        # Clear cache to force file read
+        CONTENT_CACHE.clear()
+        
         with patch("osp_marketing_tools.server.os.path.exists", return_value=False):
             result = await get_editing_codes()
 
@@ -271,6 +276,11 @@ class TestMCPErrorHandling:
     @pytest.mark.asyncio
     async def test_file_read_permission_error(self):
         """Test handling of file permission errors."""
+        from osp_marketing_tools.server import CONTENT_CACHE
+        
+        # Clear cache to force file read
+        CONTENT_CACHE.clear()
+        
         with patch("osp_marketing_tools.server.os.path.exists", return_value=True):
             with patch("osp_marketing_tools.server.os.path.getsize", return_value=1000):
                 with patch(

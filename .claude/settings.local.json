@@ -27,7 +27,10 @@
       "Bash(chmod:*)",
       "Bash(node:*)",
       "Bash(npm pack:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(npm version:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(mkdocs build:*)"
     ],
     "deny": [],
     "ask": []

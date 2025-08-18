@@ -1,0 +1,38 @@
+site_name: IPCOM Marketing AI
+site_description: Professional marketing tools with modern frameworks for content analysis and optimization
+site_url: https://github.com/fabiotheo/ipcom-marketing-ai
+
+docs_dir: docs
+
+nav:
+  - Technical Documentation: TECHNICAL_DOCUMENTATION.md
+  - API Reference: API_REFERENCE.md
+  - Developer Guide: DEVELOPER_GUIDE.md
+  - NPM Publication Guide: NPM_PUBLICATION_GUIDE.md
+  - Changelog: CHANGELOG_v0.3.0.md
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: cyan
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.share
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  
+site_dir: site
