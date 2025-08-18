@@ -9,7 +9,6 @@ on:
 
 env:
   PYTHON_VERSION: "3.10"
-  PYTHON_VERSION_MATRIX: "['3.10', '3.11', '3.12']"
 
 jobs:
   # Job 1: Code Quality & Linting
@@ -101,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ${{ fromJson(env.PYTHON_VERSION_MATRIX) }}
+        python-version: ["3.10", "3.11", "3.12"]
       fail-fast: false
 
     steps:
