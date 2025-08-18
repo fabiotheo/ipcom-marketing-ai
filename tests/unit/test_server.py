@@ -8,23 +8,15 @@ from unittest.mock import AsyncMock, MagicMock, Mock, mock_open, patch
 
 import pytest
 
-from osp_marketing_tools.server import (
-    METHODOLOGY_VERSIONS,
-    VALID_FRAMEWORKS,
-    CacheError,
-    ContentValidationError,
-    FileOperationError,
-    FrameworkValidationError,
-    LRUCache,
-    OSPToolsError,
-    _create_config_note,
-    _get_cached_content,
-    _get_cached_content_async,
-    _read_resource,
-    _read_resource_async,
-    get_logger,
-    handle_exceptions,
-)
+from osp_marketing_tools.server import (METHODOLOGY_VERSIONS, VALID_FRAMEWORKS,
+                                        CacheError, ContentValidationError,
+                                        FileOperationError,
+                                        FrameworkValidationError, LRUCache,
+                                        OSPToolsError, _create_config_note,
+                                        _get_cached_content,
+                                        _get_cached_content_async,
+                                        _read_resource, _read_resource_async,
+                                        get_logger, handle_exceptions)
 
 
 class TestLRUCache:

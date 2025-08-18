@@ -9,13 +9,8 @@ from unittest.mock import MagicMock, mock_open, patch
 
 import pytest
 
-from osp_marketing_tools.cache import (
-    AdvancedLRUCache,
-    CacheEntry,
-    CacheManager,
-    LRUCache,
-    cache_manager,
-)
+from osp_marketing_tools.cache import (AdvancedLRUCache, CacheEntry,
+                                       CacheManager, LRUCache, cache_manager)
 
 
 class TestCacheEntry:

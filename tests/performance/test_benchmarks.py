@@ -7,12 +7,10 @@ from typing import Any, Dict, List
 
 import pytest
 
-from osp_marketing_tools.server import (
-    analyze_content_multi_framework,
-    benchmark_file_operations,
-    clear_cache_statistics,
-    get_cache_statistics,
-)
+from osp_marketing_tools.server import (analyze_content_multi_framework,
+                                        benchmark_file_operations,
+                                        clear_cache_statistics,
+                                        get_cache_statistics)
 
 
 class TestPerformanceBenchmarks:

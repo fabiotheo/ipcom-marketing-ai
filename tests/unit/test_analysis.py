@@ -4,20 +4,15 @@ from typing import Any, Dict
 
 import pytest
 
-from osp_marketing_tools.analysis import (
-    FRAMEWORK_ANALYZERS,
-    EEATAnalyzer,
-    FrameworkAnalyzer,
-    GDocPAnalyzer,
-    IDEALAnalyzer,
-    STEPPSAnalyzer,
-    analyze_content_with_frameworks,
-    analyze_keyword_score,
-    analyze_pattern_score,
-    calculate_score,
-    count_content_metrics,
-    extract_pattern_matches,
-)
+from osp_marketing_tools.analysis import (FRAMEWORK_ANALYZERS, EEATAnalyzer,
+                                          FrameworkAnalyzer, GDocPAnalyzer,
+                                          IDEALAnalyzer, STEPPSAnalyzer,
+                                          analyze_content_with_frameworks,
+                                          analyze_keyword_score,
+                                          analyze_pattern_score,
+                                          calculate_score,
+                                          count_content_metrics,
+                                          extract_pattern_matches)
 
 
 class TestUtilityFunctions:
