@@ -6,18 +6,15 @@ FROM python:3.10-slim
 # Set working directory
 WORKDIR /app
 
-# Copy dependency files first for better layer caching
-COPY requirements.txt ./
-
-# Install dependencies using pip
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy application source code
+# Copy project files
+COPY requirements.txt pyproject.toml ./
 COPY src/ ./src/
-COPY pyproject.toml ./
+
+# Install the package and its dependencies
+RUN pip install --no-cache-dir -e .
 
 # Expose the port used by the application
 EXPOSE 8000
 
-# Define the command to run the application
-CMD ["python", "src/osp_marketing_tools/server.py"]
+# Define the command to run the application using the entry point
+CMD ["osp_marketing_tools"]
