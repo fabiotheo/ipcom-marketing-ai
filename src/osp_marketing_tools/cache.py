@@ -1,4 +1,4 @@
-"""Advanced caching system for OSP Marketing Tools v0.3.0."""
+"""Advanced caching system for OSP Marketing Tools."""
 
 import asyncio
 import hashlib
@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 from .config import Config
+from .version import __version__
 
 
 @dataclass
@@ -260,7 +261,7 @@ class AdvancedLRUCache:
             # Prepare data for serialization
             cache_data = {
                 "metadata": {
-                    "version": "0.3.0",
+                    "version": __version__,
                     "saved_at": time.time(),
                     "max_size": self.max_size,
                     "ttl_seconds": self.ttl_seconds,

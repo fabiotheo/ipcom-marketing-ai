@@ -18,6 +18,7 @@ from .batch import BatchItem, batch_manager
 from .cache import AdvancedLRUCache, LRUCache
 from .cache import cache_manager as cache_mgr
 from .config import Config, config_manager
+from .version import __version__
 
 
 def get_logger(name: str) -> "logging.Logger":
@@ -380,7 +381,7 @@ async def health_check() -> Dict[str, Any]:
         "status": overall_status,
         "timestamp": datetime.now().isoformat(),
         "response_time_ms": response_time,
-        "version": "0.3.0",
+        "version": __version__,
         "phase": "Phase 3 - Batch Processing & Advanced Cache",
         # Core system info
         "system": {
@@ -1132,7 +1133,7 @@ async def analyze_content_batch(
             },
             "metadata": {
                 "timestamp": datetime.now().isoformat(),
-                "version": "0.3.0",
+                "version": __version__,
                 "batch_size": len(content_items),
                 "default_frameworks": default_frameworks,
                 "priority": priority,
@@ -1165,7 +1166,7 @@ async def get_batch_status() -> Dict[str, Any]:
                 "timeout_seconds": Config.BATCH_TIMEOUT_SECONDS,
             },
         },
-        "metadata": {"timestamp": datetime.now().isoformat(), "version": "0.3.0"},
+        "metadata": {"timestamp": datetime.now().isoformat(), "version": __version__},
     }
 
 
@@ -1191,7 +1192,7 @@ async def cancel_batch(batch_id: str) -> Dict[str, Any]:
             "cancelled": success,
             "message": f"Batch {batch_id} {'cancelled successfully' if success else 'was not found or already completed'}",
         },
-        "metadata": {"timestamp": datetime.now().isoformat(), "version": "0.3.0"},
+        "metadata": {"timestamp": datetime.now().isoformat(), "version": __version__},
     }
 
 
@@ -1222,7 +1223,7 @@ async def get_advanced_cache_info() -> Dict[str, Any]:
         },
         "metadata": {
             "timestamp": datetime.now().isoformat(),
-            "version": "0.3.0",
+            "version": __version__,
             "cache_system": "AdvancedLRUCache with TTL",
         },
     }
@@ -1247,7 +1248,7 @@ async def cleanup_expired_cache() -> Dict[str, Any]:
             "message": f"Cleaned up {total_removed} expired entries across all caches",
             "timestamp": datetime.now().isoformat(),
         },
-        "metadata": {"timestamp": datetime.now().isoformat(), "version": "0.3.0"},
+        "metadata": {"timestamp": datetime.now().isoformat(), "version": __version__},
     }
 
 

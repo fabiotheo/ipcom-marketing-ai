@@ -160,13 +160,12 @@ repos:
         description: Check version consistency
         entry: python
         language: system
-        args: [
+        args:
+          [
             "-c",
-            '
-            import tomllib; with open(''pyproject.toml'', ''rb'') as f: data =
-            tomllib.load(f); print(f''✅ Version {data["project"]["version"]}
-            consistent'');
-            ',
+            'import tomllib; import sys; f = open(''pyproject.toml'', ''rb'');
+            data = tomllib.load(f); f.close(); print(f''✅ Version
+            {data["project"]["version"]} consistent'')',
           ]
         pass_filenames: false
         always_run: false

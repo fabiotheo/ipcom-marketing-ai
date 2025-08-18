@@ -1,4 +1,4 @@
-"""Batch processing system for OSP Marketing Tools v0.3.0."""
+"""Batch processing system for OSP Marketing Tools."""
 
 import asyncio
 import logging
