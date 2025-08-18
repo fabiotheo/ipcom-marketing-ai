@@ -33,7 +33,9 @@
       "Bash(mkdocs build:*)",
       "Bash(cp:*)",
       "Bash(mv:*)",
-      "Bash(pip show:*)"
+      "Bash(pip show:*)",
+      "Bash(isort --version)",
+      "Bash(isort:*)"
     ],
     "deny": [],
     "ask": []
