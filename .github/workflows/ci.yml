@@ -283,7 +283,7 @@ jobs:
           echo "Checking if Docker image exists..."
           docker images
           echo "Looking for our specific image..."
-          docker images | grep osp-marketing-tools:test
+          docker images | grep "osp-marketing-tools.*test"
           echo "Testing container startup..."
           timeout 10s docker run --rm osp-marketing-tools:test || [ $? -eq 124 ]
           echo "Docker test completed"
