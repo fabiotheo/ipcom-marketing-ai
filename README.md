@@ -76,10 +76,11 @@ Get up and running in **less than 30 seconds**:
 ### Step 1: Install IPCOM Marketing AI
 
 ```bash
-# Quick installation via Claude Code/Desktop
-claude mcp add ipcom-ai npx ipcom-marketing-ai
+# Recommended: Global installation for Claude Code
+npm install -g ipcom-marketing-ai@latest
+claude mcp add ipcom-marketing-ai ipcom-marketing-ai
 
-# Or via uvx
+# Alternative: Direct Python installation
 uvx --from git+https://github.com/fabiotheo/ipcom-marketing-ai@main osp_marketing_tools
 ```
 
@@ -690,9 +691,13 @@ Optimize content using E-E-A-T framework and entity-based SEO principles.
 
 ### Claude Code Integration
 
-**Simple Command:**
+**Recommended Method:**
 ```bash
-claude mcp add ipcom-ai npx ipcom-marketing-ai
+# 1. Install globally
+npm install -g ipcom-marketing-ai@latest
+
+# 2. Add to Claude MCP
+claude mcp add ipcom-marketing-ai ipcom-marketing-ai
 ```
 
 **Manual Configuration:**

@@ -6,20 +6,25 @@ This package provides a convenient NPM wrapper for the comprehensive OSP Marketi
 
 ## ⚡ Quick Installation
 
-### **For Claude Desktop/Code:**
+### **For Claude Code (Recommended):**
 ```bash
-claude mcp add ipcom-ai npx ipcom-marketing-ai
+# 1. Install globally
+npm install -g ipcom-marketing-ai@latest
+
+# 2. Add to Claude MCP
+claude mcp add ipcom-marketing-ai ipcom-marketing-ai
 ```
 
-### **Global Installation:**
+### **Alternative Methods:**
 ```bash
+# Global installation only
 npm install -g ipcom-marketing-ai
-```
 
-### **One-time Usage:**
-```bash
+# Direct execution (for testing)
 npx ipcom-marketing-ai
 ```
+
+> **Note:** Global installation is recommended for MCP integration as it ensures proper permissions and reliable connectivity.
 
 ## 🎯 What's Included
 
@@ -67,6 +72,32 @@ Once installed in Claude Desktop/Code, you can use commands like:
 - **Python**: 3.10+ (automatically installed via uv)
 - **uv**: Automatically installed if not present
 
+## 💡 Example Usage
+
+After installation, you can analyze marketing content directly in Claude Code:
+
+```
+Analyze this marketing content using IDEAL, STEPPS, and E-E-A-T frameworks:
+
+🚀 Transform your productivity with FlowDesk Pro!
+
+Tired of wasting time on repetitive tasks? Our intelligent automation platform uses AI to automatically organize your emails, schedule meetings, and prioritize your most important tasks.
+
+✅ Proven results: Our 50,000+ users report 70% less time wasted on administration
+✅ Award-winning technology: Recognized by TechCrunch as 'Startup of the Year 2024'  
+✅ Perfect integration: Works with Gmail, Outlook, Slack, Notion and 200+ tools
+
+💡 Real testimonial: 'FlowDesk gave me back 3 hours per day. Now I can focus on what really matters for my business!' - Maria Silva, CEO of TechStart
+
+🎯 Special offer: First 1000 users get 6 months FREE + personalized productivity consulting.
+
+👉 Start free now - no credit card required
+
+Join the productivity revolution. Your competitors are already ahead.
+```
+
+The analysis will provide detailed scores and recommendations for each framework, helping you optimize your marketing content.
+
 ## 📚 Documentation
 
 - **Main Repository**: [ipcom-marketing-ai](https://github.com/fabiotheo/ipcom-marketing-ai)
@@ -76,7 +107,7 @@ Once installed in Claude Desktop/Code, you can use commands like:
 
 ## 🏷️ Version Information
 
-- **Version**: 0.3.0 (Phase 3 - Batch Processing & Advanced Cache)
+- **Version**: 0.3.3 (Phase 3 - Batch Processing & Advanced Cache + Improved MCP Integration)
 - **Python Package**: Automatically fetched from GitHub
 - **MCP Compatibility**: Full Model Context Protocol support
 - **Claude Integration**: Native Claude Desktop and Claude Code support
