@@ -21,7 +21,12 @@
       "Bash(mypy:*)",
       "Bash(pre-commit install:*)",
       "Bash(pre-commit run:*)",
-      "Bash(osp_marketing_tools:*)"
+      "Bash(osp_marketing_tools:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(chmod:*)",
+      "Bash(node:*)",
+      "Bash(npm pack:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,4 +1,4 @@
-# Open Strategy Partners (OSP) Marketing Tools for LLMs
+# IPCOM Marketing AI - Advanced Marketing Tools for LLMs
 
 <div align="center">
 
@@ -44,7 +44,7 @@ _Enhanced with cutting-edge 2025 frameworks_
 
 ## Overview
 
-**OSP Marketing Tools** is a comprehensive suite of AI-powered tools for
+**IPCOM Marketing AI** is a comprehensive suite of AI-powered tools for
 technical marketing content creation, optimization, and product positioning.
 Built on proven methodologies from
 [Open Strategy Partners](https://openstrategypartners.com) and enhanced with
@@ -59,7 +59,7 @@ creation.
 
 ### 🎯 Why Choose OSP Marketing Tools?
 
-| Feature             | OSP Marketing Tools           | Traditional Tools    | Generic AI             |
+| Feature             | IPCOM Marketing AI            | Traditional Tools    | Generic AI             |
 | ------------------- | ----------------------------- | -------------------- | ---------------------- |
 | **Frameworks**      | 8 modern methodologies (2025) | 1-2 outdated methods | No structured approach |
 | **Integration**     | Native MCP support            | Manual copy/paste    | Limited context        |
@@ -73,11 +73,14 @@ creation.
 
 Get up and running in **less than 30 seconds**:
 
-### Step 1: Install OSP Marketing Tools
+### Step 1: Install IPCOM Marketing AI
 
 ```bash
-# Quick installation via uvx
-uvx --from git+https://github.com/open-strategy-partners/osp_marketing_tools@main osp_marketing_tools
+# Quick installation via Claude Code/Desktop
+claude mcp add ipcom-ai npx ipcom-marketing-ai
+
+# Or via uvx
+uvx --from git+https://github.com/fabiotheo/ipcom-marketing-ai@main osp_marketing_tools
 ```
 
 ### Step 2: Configure Claude Desktop
@@ -87,11 +90,11 @@ Add to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "osp_marketing_tools": {
+    "ipcom_marketing_ai": {
       "command": "uvx",
       "args": [
         "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
+        "git+https://github.com/fabiotheo/ipcom-marketing-ai@main",
         "osp_marketing_tools"
       ]
     }
@@ -287,11 +290,11 @@ Add to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "osp_marketing_tools": {
+    "ipcom_marketing_ai": {
       "command": "uvx",
       "args": [
         "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
+        "git+https://github.com/fabiotheo/ipcom-marketing-ai@main",
         "osp_marketing_tools"
       ]
     }
@@ -362,11 +365,11 @@ services:
 ```json
 {
   "mcpServers": {
-    "osp_marketing_tools": {
+    "ipcom_marketing_ai": {
       "command": "uvx",
       "args": [
         "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
+        "git+https://github.com/fabiotheo/ipcom-marketing-ai@main",
         "osp_marketing_tools"
       ]
     }
@@ -673,11 +676,11 @@ Optimize content using E-E-A-T framework and entity-based SEO principles.
 ```json
 {
   "mcpServers": {
-    "osp_marketing_tools": {
+    "ipcom_marketing_ai": {
       "command": "uvx",
       "args": [
         "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
+        "git+https://github.com/fabiotheo/ipcom-marketing-ai@main",
         "osp_marketing_tools"
       ]
     }
@@ -687,18 +690,18 @@ Optimize content using E-E-A-T framework and entity-based SEO principles.
 
 ### Claude Code Integration
 
-**Configuration File Setup:**
+**Simple Command:**
+```bash
+claude mcp add ipcom-ai npx ipcom-marketing-ai
+```
 
+**Manual Configuration:**
 ```json
 {
   "mcpServers": {
-    "osp_marketing_tools": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
-        "osp_marketing_tools"
-      ]
+    "ipcom_marketing_ai": {
+      "command": "npx",
+      "args": ["ipcom-marketing-ai"]
     }
   }
 }

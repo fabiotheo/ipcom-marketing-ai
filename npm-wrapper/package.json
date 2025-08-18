@@ -1,0 +1,68 @@
+{
+  "name": "ipcom-marketing-ai",
+  "version": "0.3.0",
+  "description": "Model Context Protocol (MCP) server for comprehensive AI-powered marketing tools with 2025 frameworks including IDEAL, STEPPS, E-E-A-T, and GDocP. Features batch processing, advanced caching, and enterprise-grade content analysis.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "marketing",
+    "content-analysis",
+    "frameworks",
+    "IDEAL",
+    "STEPPS",
+    "E-E-A-T",
+    "GDocP",
+    "batch-processing",
+    "cache",
+    "ai-tools",
+    "claude",
+    "anthropic",
+    "osp",
+    "open-strategy-partners",
+    "technical-writing",
+    "seo",
+    "content-optimization",
+    "typescript",
+    "nodejs",
+    "python",
+    "cli-tool"
+  ],
+  "author": "Fabio Theodoro <fabiotheo@ipcom.com.br>",
+  "homepage": "https://github.com/fabiotheo/ipcom-marketing-ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiotheo/ipcom-marketing-ai.git"
+  },
+  "bugs": "https://github.com/fabiotheo/ipcom-marketing-ai/issues",
+  "license": "CC-BY-SA-4.0",
+  "bin": {
+    "ipcom-marketing-ai": "./index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js --help"
+  },
+  "mcp": {
+    "type": "stdio",
+    "command": "ipcom-marketing-ai",
+    "args": []
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "preferGlobal": true
+}
