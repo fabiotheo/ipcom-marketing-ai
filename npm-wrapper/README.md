@@ -81,9 +81,39 @@ Once installed in Claude Desktop/Code, you can use commands like:
 - **MCP Compatibility**: Full Model Context Protocol support
 - **Claude Integration**: Native Claude Desktop and Claude Code support
 
+## 🔧 Development & Publishing
+
+### **Testing Locally**
+```bash
+# Test the wrapper locally
+./test-local.sh
+```
+
+### **Publishing Updates**
+```bash
+# Automated publication process
+./publish.sh
+```
+
+### **Manual Process**
+```bash
+# Update version
+npm version patch|minor|major
+
+# Test locally
+npm pack && node index.js
+
+# Publish to NPM
+npm publish
+```
+
+## 📚 Complete Publication Guide
+
+See [NPM_PUBLICATION_GUIDE.md](../docs/NPM_PUBLICATION_GUIDE.md) for detailed instructions on publishing and updating this package.
+
 ## 🤝 Contributing
 
-This NPM wrapper is part of the larger OSP Marketing Tools project. Contributions welcome!
+This NPM wrapper is part of the larger IPCOM Marketing AI project. Contributions welcome!
 
 1. **Main Project**: [ipcom-marketing-ai](https://github.com/fabiotheo/ipcom-marketing-ai)
 2. **Report Issues**: [GitHub Issues](https://github.com/fabiotheo/ipcom-marketing-ai/issues)
