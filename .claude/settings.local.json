@@ -14,7 +14,14 @@
       "Bash(pip install:*)",
       "mcp__zen__codereview",
       "Bash(grep:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(pytest:*)",
+      "Bash(black:*)",
+      "Bash(flake8:*)",
+      "Bash(mypy:*)",
+      "Bash(pre-commit install:*)",
+      "Bash(pre-commit run:*)",
+      "Bash(osp_marketing_tools:*)"
     ],
     "deny": [],
     "ask": []

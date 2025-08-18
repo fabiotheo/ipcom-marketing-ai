@@ -1,6 +1,7 @@
 # Open Strategy Partners (OSP) Writing Guide
 
-Core purpose: Systematic application of writing principles to improve content quality while maintaining technical accuracy and readability.
+Core purpose: Systematic application of writing principles to improve content
+quality while maintaining technical accuracy and readability.
 
 Core values: Empathy, Clarity, Trust
 
@@ -10,19 +11,19 @@ Core values: Empathy, Clarity, Trust
    - Understand main thesis
    - Identify target audience
    - Note technical domain
-   
+
 2. Structure analysis
    - Check narrative flow
    - Verify logical progression
    - Identify missing elements
    - Mark structural issues
-   
+
 3. Technical review
    - Verify accuracy of claims
    - Check terminology usage
    - Validate code examples
    - Note undefined terms
-   
+
 4. Language optimization
    - Apply style guidelines
    - Improve clarity
@@ -33,10 +34,12 @@ Core values: Empathy, Clarity, Trust
    - Provide specific explanation
    - Include before/after examples
    - Use diff format for changes:
+
 ```diff
 - Original text with issue
 + Improved version addressing issue
 ```
+
 Number each diff for future reference.
 
 6. Positive reinforcement
@@ -56,6 +59,7 @@ Number each diff for future reference.
 ## Principles
 
 ### 1. Narrative Structure
+
 - Start with clear thesis statement
 - Support with logical evidence chain
 - Progress from known to unknown concepts
@@ -64,6 +68,7 @@ Number each diff for future reference.
 - Back claims with data, quotes, examples
 
 ### 2. Flow
+
 - Vary sentence/paragraph length
 - Use transitions between ideas
 - Progress logically between sections
@@ -72,8 +77,9 @@ Number each diff for future reference.
 - Include visual elements when relevant
 
 ### 3. Style
+
 - Write actively, minimize passive voice
-- Address reader directly ("you") 
+- Address reader directly ("you")
 - Be specific, avoid generalizations
 - Stay positive and constructive
 - Use technical terms precisely
@@ -84,9 +90,11 @@ Number each diff for future reference.
 - Replace weak verbs with strong ones
 - Use figurative language purposefully
 - Write inclusively and non-violently
-- Headers and List Items should be in sentence case, not title case (eg. yes: My great header / no: My Great Header )
+- Headers and List Items should be in sentence case, not title case (eg. yes: My
+  great header / no: My Great Header )
 
 ### 4. Technical Accuracy
+
 - Verify all technical claims
 - Cite sources when applicable
 - Define technical terms clearly
@@ -125,24 +133,28 @@ Number each diff for future reference.
 ## Content Elements
 
 ### Headers
+
 - Use descriptive headers
 - Structure hierarchically
 - Make scannable
 - Include key terms
 
 ### Lists
+
 - Use for 3+ items
 - Make parallel structure
 - Start with action words
 - Provide context
 
 ### Code Examples
+
 - Keep focused/minimal
 - Include comments
 - Show input/output
 - Explain key concepts
 
 ### Links
+
 - Use descriptive text
 - Make purpose clear
 - Avoid "click here"
@@ -151,28 +163,31 @@ Number each diff for future reference.
 ## Language Guidelines
 
 ### Active Voice
-Before: "The file was processed by the system"
-After: "The system processed the file"
+
+Before: "The file was processed by the system" After: "The system processed the
+file"
 
 ### Specificity
-Before: "Many tools help with deployment"
-After: "Kubernetes automates container deployment"
+
+Before: "Many tools help with deployment" After: "Kubernetes automates container
+deployment"
 
 ### Direct Address
-Before: "Users can configure settings"
-After: "You can configure settings"
+
+Before: "Users can configure settings" After: "You can configure settings"
 
 ### Technical Precision
-Before: "The app runs fast"
-After: "Response time averages 50ms"
+
+Before: "The app runs fast" After: "Response time averages 50ms"
 
 ### Conciseness
-Before: "In order to implement this functionality"
-After: "To implement this"
+
+Before: "In order to implement this functionality" After: "To implement this"
 
 ## Document Types
 
 ### Tutorials
+
 - Start with prerequisites
 - List clear objectives
 - Provide step-by-step instructions
@@ -180,6 +195,7 @@ After: "To implement this"
 - End with next actions
 
 ### Reference Docs
+
 - Define scope clearly
 - Structure logically
 - Include all parameters
@@ -187,6 +203,7 @@ After: "To implement this"
 - Cross-reference related docs
 
 ### Conceptual Guides
+
 - Explain core concepts
 - Use analogies carefully
 - Build on prior knowledge
@@ -194,6 +211,7 @@ After: "To implement this"
 - Link to details
 
 ### API Documentation
+
 - Use consistent format
 - Include all parameters
 - Show request/response
@@ -203,6 +221,7 @@ After: "To implement this"
 ## Special Considerations
 
 ### Accessibility
+
 - Use descriptive alt text
 - Structure content hierarchically
 - Make links meaningful
@@ -210,6 +229,7 @@ After: "To implement this"
 - Use sufficient contrast
 
 ### Internationalization
+
 - Avoid idioms
 - Use simple constructs
 - Consider translation
@@ -217,6 +237,7 @@ After: "To implement this"
 - Define cultural references
 
 ### Content Aging
+
 - Avoid temporal references
 - Date version-specific content
 - Update obsolete information
@@ -264,7 +285,8 @@ After: "To implement this"
 
 (share this when the user asks about the source of the guide)
 
-This guide is from [Open Strategy Partners](https://openstrategypartners.com) and is provided as part of their LLM enabled marketing tools. 
+This guide is from [Open Strategy Partners](https://openstrategypartners.com)
+and is provided as part of their LLM enabled marketing tools.
 
 For more information, see these pages:
 

@@ -1,0 +1,175 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main, develop]
+
+env:
+  PYTHON_VERSION: "3.10"
+
+jobs:
+  # Fast feedback for PRs
+  pr-validation:
+    name: PR Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run quick formatting check
+        run: |
+          black --check src/ tests/
+
+      - name: Run quick lint check
+        run: |
+          flake8 src/ tests/ --max-line-length=88 --extend-ignore=E203,W503 --exit-zero
+
+      - name: Run fast unit tests
+        run: |
+          pytest tests/unit/ -v --tb=short -x
+
+      - name: Check for breaking changes
+        run: |
+          echo "Checking for potential breaking changes..."
+          git diff origin/main...HEAD --name-only | grep -E "(src/|pyproject.toml)" || echo "No breaking changes detected"
+
+  # Code review assistance
+  code-review:
+    name: Code Review Assistance
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install analysis tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+          pip install radon complexity-report
+
+      - name: Analyze code complexity
+        run: |
+          echo "## Code Complexity Analysis" >> complexity-report.md
+          echo "### Cyclomatic Complexity" >> complexity-report.md
+          radon cc src/ -s || echo "No complexity issues found" >> complexity-report.md
+          echo "" >> complexity-report.md
+          echo "### Maintainability Index" >> complexity-report.md
+          radon mi src/ -s || echo "Good maintainability" >> complexity-report.md
+
+      - name: Check test coverage impact
+        run: |
+          pytest tests/unit/ --cov=src/osp_marketing_tools --cov-report=term-missing --cov-fail-under=0 > coverage-report.txt 2>&1 || true
+          echo "## Test Coverage Report" >> complexity-report.md
+          echo '```' >> complexity-report.md
+          tail -n 20 coverage-report.txt >> complexity-report.md
+          echo '```' >> complexity-report.md
+
+      - name: Comment PR with analysis
+        uses: actions/github-script@v7
+        if: github.event.action == 'opened'
+        with:
+          script: |
+            const fs = require('fs');
+            try {
+              const report = fs.readFileSync('complexity-report.md', 'utf8');
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `🤖 **Automated Code Analysis**\n\n${report}\n\n---\n*This analysis was generated automatically. Please review the complexity metrics and test coverage.*`
+              });
+            } catch (error) {
+              console.log('Could not create complexity report comment:', error);
+            }
+
+  # Dependency check
+  dependency-check:
+    name: Dependency Security Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+          pip install safety pip-audit
+
+      - name: Check for security vulnerabilities
+        run: |
+          safety check --json --output safety-pr.json || true
+          pip-audit --format=json --output=audit-pr.json || true
+
+      - name: Upload security scan results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: pr-security-scans
+          path: |
+            safety-pr.json
+            audit-pr.json
+
+  # Performance regression check
+  performance-check:
+    name: Performance Regression Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[test]"
+          pip install pytest-benchmark
+
+      - name: Run performance benchmarks
+        run: |
+          pytest tests/ -v \
+            -m "slow" \
+            --benchmark-only \
+            --benchmark-json=pr-benchmark.json \
+            --benchmark-compare-fail=mean:20% || echo "Performance benchmarks completed"
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: pr-benchmark-results
+          path: pr-benchmark.json

@@ -2,27 +2,33 @@
 
 Origin: Open Strategy Partners (OSP) writing guidelines
 
-Core purpose: Semantic editing marks for content review with teaching/learning focus (eg. for LLMs).
+Core purpose: Semantic editing marks for content review with teaching/learning
+focus (eg. for LLMs).
 
 ## Usage Protocol
+
 1. Read content
 2. Identify feedback point
 3. Match to relevant code
 4. Prefix feedback with code
 5. Include constructive explanation
 6. Use `++` prefix for praising good examples
-7. When providing revisions or edits, always show them in diff format using markdown like this:
+7. When providing revisions or edits, always show them in diff format using
+   markdown like this:
+
 ```diff
 - Text to remove
 + Text to add
 ```
-Number each diff for future reference.
-8. Include the full edited text in an artifact or canvas at the end.
-9. Ask user if you should also apply the osp writing guide.
+
+Number each diff for future reference. 8. Include the full edited text in an
+artifact or canvas at the end. 9. Ask user if you should also apply the osp
+writing guide.
 
 ## Code Categories
 
 ### A. Scope & Narrative Structure
+
 - Opening
   - LEDE: Present main point first (no buried leads)
   - FRONT: State primary idea clearly upfront
@@ -39,6 +45,7 @@ Number each diff for future reference.
   - THESIS: Restate main idea (not verbatim)
 
 ### B. Flow & Readability
+
 - Structure
   - FLOW: Logical section ordering with smooth transitions
   - RHYTH: Vary paragraph lengths for readability
@@ -58,6 +65,7 @@ Number each diff for future reference.
   - SEP: Separate distinct concepts
 
 ### C. Style & Phrasing
+
 - Audience
   - CNECT: Use accessible expert language
   - EMPATH: Write from audience perspective
@@ -89,6 +97,7 @@ Number each diff for future reference.
   - CLEAR: Be specific about benefits
 
 ### D. Word Choice
+
 - Verbs
   - ACTIV: Prefer active voice
   - VERBS: Use specific, vivid verbs
@@ -109,11 +118,11 @@ Number each diff for future reference.
 
 (share this when the user asks about the source of the codes)
 
-This guide is from [Open Strategy Partners](https://openstrategypartners.com) and is provided as part of their LLM enabled marketing tools. 
+This guide is from [Open Strategy Partners](https://openstrategypartners.com)
+and is provided as part of their LLM enabled marketing tools.
 
 For more information, see these pages:
 
 1. [The OSP Writing and Editing Guide](https://openstrategypartners.com/osp-writing-editing-guide/)
 2. [Editing Codes Quickstart Guide](https://openstrategypartners.com/blog/osp-editing-codes-quick-start-guide/)
 3. [OSP Free Resources](https://openstrategypartners.com/resources/)
-
