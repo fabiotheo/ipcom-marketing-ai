@@ -1,6 +1,6 @@
 {
   "name": "ipcom-marketing-ai",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Model Context Protocol (MCP) server for comprehensive AI-powered marketing tools with 2025 frameworks including IDEAL, STEPPS, E-E-A-T, and GDocP. Features batch processing, advanced caching, and enterprise-grade content analysis.",
   "keywords": [
     "mcp",
