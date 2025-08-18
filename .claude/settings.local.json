@@ -32,7 +32,8 @@
       "WebFetch(domain:github.com)",
       "Bash(mkdocs build:*)",
       "Bash(cp:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(pip show:*)"
     ],
     "deny": [],
     "ask": []
