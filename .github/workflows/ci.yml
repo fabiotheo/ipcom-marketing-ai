@@ -272,21 +272,21 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: false
-          load: true
-          tags: osp-marketing-tools:test
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+        run: |
+          echo "Building Docker image..."
+          docker build -t osp-marketing-tools:test .
+          echo "Docker build completed successfully"
 
       - name: Test Docker image
         run: |
           # Test that the Docker image was built successfully
+          echo "Checking if Docker image exists..."
+          docker images
+          echo "Looking for our specific image..."
           docker images | grep osp-marketing-tools:test
-          # Test that the container starts without immediate errors
+          echo "Testing container startup..."
           timeout 10s docker run --rm osp-marketing-tools:test || [ $? -eq 124 ]
+          echo "Docker test completed"
 
   # Job 8: Documentation
   docs:
