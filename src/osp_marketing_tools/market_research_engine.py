@@ -13,9 +13,7 @@ try:
     from ddgs import DDGS
 except ImportError:
     DDGS = None
-    logging.warning(
-        "ddgs not available. Install with: pip install ddgs"
-    )
+    logging.warning("ddgs not available. Install with: pip install ddgs")
 
 from .config import Config
 from .fallback_data_provider import FallbackDataProvider
@@ -105,7 +103,7 @@ class RingSpecificResearchBuilder:
         product_category = self._normalize_product_category(context.get("product", ""))
 
         # Build queries from templates
-        for category, template_list in templates.items():
+        for _category, template_list in templates.items():
             for template in template_list:
                 try:
                     query = template.format(
@@ -177,9 +175,7 @@ class MarketResearchEngine:
         self.search_engine = DDGS() if DDGS else None
 
         if not self.search_engine:
-            logger.warning(
-                "DDGS search not available. Will use fallback data only."
-            )
+            logger.warning("DDGS search not available. Will use fallback data only.")
 
     async def conduct_batch_research(
         self, persona_context: Dict[str, str]
