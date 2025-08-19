@@ -34,7 +34,7 @@ idna==3.10
     #   httpx
 markdown-it-py==3.0.0
     # via rich
-mcp==1.2.0
+mcp==1.13.0
     # via osp-marketing-tools (pyproject.toml)
 mdurl==0.1.2
     # via markdown-it-py
