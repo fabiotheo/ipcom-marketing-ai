@@ -131,7 +131,7 @@ jobs:
           pip-audit --format=json --output=audit-pr.json || true
 
       - name: Upload security scan results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: pr-security-scans
@@ -168,7 +168,7 @@ jobs:
             --benchmark-compare-fail=mean:20% || echo "Performance benchmarks completed"
 
       - name: Upload benchmark results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: pr-benchmark-results
