@@ -231,7 +231,7 @@ jobs:
 
     steps:
       - name: Download release packages
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v5
         with:
           name: release-packages
           path: dist/
@@ -261,7 +261,7 @@ jobs:
 
     steps:
       - name: Download release packages
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v5
         with:
           name: release-packages
           path: dist/
