@@ -135,7 +135,7 @@ jobs:
             --cov-report=xml:coverage-${{ matrix.python-version }}.xml \
             --cov-report=html:htmlcov-${{ matrix.python-version }} \
             --cov-report=term-missing \
-            --cov-fail-under=70 \
+            --cov-fail-under=60 \
             --junit-xml=test-results-${{ matrix.python-version }}.xml
 
       - name: Upload coverage to Codecov

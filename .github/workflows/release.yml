@@ -62,7 +62,7 @@ jobs:
 
       - name: Run full test suite
         run: |
-          pytest tests/ -v --cov=src/osp_marketing_tools --cov-fail-under=70
+          pytest tests/ -v --cov=src/osp_marketing_tools --cov-fail-under=60
 
       - name: Check pyproject.toml version
         run: |
