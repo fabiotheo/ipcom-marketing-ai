@@ -18,6 +18,7 @@ from .batch import BatchItem, batch_manager
 from .cache import AdvancedLRUCache, LRUCache
 from .cache import cache_manager as cache_mgr
 from .config import Config, config_manager
+from .persona_builder import PersonaBuilder
 from .version import __version__
 
 
@@ -51,6 +52,9 @@ def get_logger(name: str) -> "logging.Logger":
 
 
 logger = get_logger(__name__)
+
+# Initialize global persona builder instance
+persona_builder = PersonaBuilder()
 
 
 # Custom exceptions for better error handling
@@ -1247,6 +1251,290 @@ async def cleanup_expired_cache() -> Dict[str, Any]:
         },
         "metadata": {"timestamp": datetime.now().isoformat(), "version": __version__},
     }
+
+
+@mcp.tool()
+@handle_exceptions
+async def create_interactive_persona(
+    product_context: str = "", start_interview: bool = True
+) -> Dict[str, Any]:
+    """Create an Interactive Buyer Persona using Adele Revella's 5 Rings of Buying Insight methodology.
+
+    This tool guides users through a comprehensive interview process to build evidence-based buyer personas
+    with integrated market research, quality assurance, and fallback data for reliability.
+
+    Args:
+        product_context: Optional context about the product/service for personalized questions
+        start_interview: Whether to immediately start the interview session (default: True)
+
+    Returns:
+        Dict containing either the interview session info or complete persona data
+    """
+    logger.info("Starting Interactive Buyer Persona Generator")
+
+    try:
+        if start_interview:
+            # Start new interview session
+            session_id, session_info = persona_builder.interview_engine.start_interview(
+                product_context=product_context
+            )
+
+            return {
+                "success": True,
+                "action": "interview_started",
+                "data": {
+                    "session_id": session_id,
+                    "first_question": session_info["question"],
+                    "progress": session_info["progress"],
+                    "context": session_info["context"],
+                    "methodology": "Adele Revella's 5 Rings of Buying Insight",
+                    "expected_duration": "10-15 minutes",
+                    "instructions": {
+                        "next_step": "Answer the question provided and use 'continue_persona_interview' to proceed",
+                        "completion": "The interview will automatically generate a complete persona when finished",
+                        "methodology_info": "Based on Priority Initiative, Success Factors, Perceived Barriers, Decision Criteria, and Buyer's Journey",
+                    },
+                },
+                "metadata": {
+                    "methodology": "interactive_buyer_persona_generator",
+                    "version": "1.0.0",
+                    "timestamp": datetime.now().isoformat(),
+                    "based_on": "Adele Revella's 'Buyer Personas' methodology",
+                },
+            }
+        else:
+            # Return methodology information without starting interview
+            return {
+                "success": True,
+                "action": "methodology_info",
+                "data": {
+                    "methodology": "Interactive Buyer Persona Generator",
+                    "description": "Evidence-based buyer persona creation using Adele Revella's 5 Rings of Buying Insight",
+                    "features": [
+                        "Guided interview based on proven methodology",
+                        "Automated market research integration",
+                        "Quality assurance with confidence scoring",
+                        "Cross-ring validation for logical consistency",
+                        "Industry-specific fallback data",
+                        "Comprehensive persona output with actionable insights",
+                    ],
+                    "five_rings": {
+                        "priority_initiative": "What triggers the buying decision - the specific event that makes solving this problem a priority",
+                        "success_factors": "What the buyer hopes to achieve - both business outcomes and personal wins",
+                        "perceived_barriers": "What concerns or obstacles the buyer anticipates when making this decision",
+                        "decision_criteria": "How the buyer evaluates and compares solutions - their must-haves and deal-breakers",
+                        "buyers_journey": "How the buyer researches, evaluates, and makes the purchase decision",
+                    },
+                    "quality_features": [
+                        "Confidence scoring for each ring",
+                        "Cross-ring validation for consistency",
+                        "Market research integration",
+                        "Industry-specific fallback data",
+                        "Quality gates and improvement suggestions",
+                    ],
+                    "supported_industries": [
+                        "fintech",
+                        "saas",
+                        "ecommerce",
+                        "healthtech",
+                        "generic",
+                    ],
+                    "usage": "Call this tool with start_interview=True to begin the persona creation process",
+                },
+                "metadata": {
+                    "methodology": "interactive_buyer_persona_generator",
+                    "version": "1.0.0",
+                    "timestamp": datetime.now().isoformat(),
+                    "author": "Based on Adele Revella's research methodology",
+                },
+            }
+
+    except Exception as e:
+        logger.error(f"Error in create_interactive_persona: {str(e)}")
+        return {
+            "success": False,
+            "error": f"Failed to initialize persona generator: {str(e)}",
+            "error_type": "initialization_error",
+            "suggested_action": "Check system configuration and dependencies",
+        }
+
+
+@mcp.tool()
+@handle_exceptions
+async def continue_persona_interview(session_id: str, response: str) -> Dict[str, Any]:
+    """Continue an active persona interview session by providing an answer to the current question.
+
+    Args:
+        session_id: The session ID from create_interactive_persona
+        response: Your answer to the current interview question
+
+    Returns:
+        Dict containing next question or completion status with final persona
+    """
+    logger.info(f"Continuing persona interview for session {session_id}")
+
+    try:
+        if not session_id or not session_id.strip():
+            raise ValueError("session_id is required")
+
+        if not response or not response.strip():
+            raise ValueError("response is required and cannot be empty")
+
+        # Process the response
+        interview_result = persona_builder.interview_engine.answer_question(
+            session_id, response
+        )
+
+        if interview_result.get("completed"):
+            # Interview is complete, build the persona
+            logger.info(
+                f"Interview completed for session {session_id}, building persona..."
+            )
+
+            try:
+                final_persona = await persona_builder.build_persona_from_interview(
+                    session_id=session_id, persona_name=f"Persona_{session_id[:8]}"
+                )
+
+                return {
+                    "success": True,
+                    "action": "persona_completed",
+                    "data": {
+                        "session_id": session_id,
+                        "interview_completed": True,
+                        "persona": final_persona,
+                        "summary": f"Successfully created buyer persona with {final_persona['quality_metrics']['overall_confidence']:.1f}% confidence",
+                        "next_steps": [
+                            "Review the generated persona data",
+                            "Use quality metrics to understand confidence levels",
+                            "Apply improvement suggestions if confidence is low",
+                            "Export or integrate persona into marketing strategies",
+                        ],
+                    },
+                    "metadata": {
+                        "methodology": "interactive_buyer_persona_generator",
+                        "version": "1.0.0",
+                        "timestamp": datetime.now().isoformat(),
+                        "total_rings": 5,
+                        "quality_assured": True,
+                    },
+                }
+
+            except Exception as e:
+                logger.error(
+                    f"Error building persona for session {session_id}: {str(e)}"
+                )
+                return {
+                    "success": False,
+                    "error": f"Failed to build persona: {str(e)}",
+                    "error_type": "persona_building_error",
+                    "session_id": session_id,
+                    "suggested_action": "Interview data may be incomplete. Consider restarting the interview.",
+                }
+
+        else:
+            # Continue with next question
+            return {
+                "success": True,
+                "action": "interview_continuing",
+                "data": {
+                    "session_id": session_id,
+                    "question": interview_result["question"],
+                    "progress": interview_result["progress"],
+                    "is_follow_up": interview_result.get("is_follow_up", False),
+                    "instructions": "Answer this question and call continue_persona_interview again with your response",
+                },
+                "metadata": {
+                    "methodology": "interactive_buyer_persona_generator",
+                    "version": "1.0.0",
+                    "timestamp": datetime.now().isoformat(),
+                },
+            }
+
+    except ValueError as e:
+        logger.warning(f"Validation error in continue_persona_interview: {str(e)}")
+        return {
+            "success": False,
+            "error": str(e),
+            "error_type": "validation_error",
+            "suggested_action": "Provide valid session_id and response parameters",
+        }
+    except Exception as e:
+        logger.error(f"Error in continue_persona_interview: {str(e)}")
+        return {
+            "success": False,
+            "error": f"Interview processing failed: {str(e)}",
+            "error_type": "interview_error",
+            "session_id": session_id,
+            "suggested_action": "Check session status or restart the interview",
+        }
+
+
+@mcp.tool()
+@handle_exceptions
+async def get_persona_interview_status(session_id: str) -> Dict[str, Any]:
+    """Get the current status and summary of a persona interview session.
+
+    Args:
+        session_id: The session ID to check
+
+    Returns:
+        Dict containing session status, progress, and summary information
+    """
+    logger.info(f"Getting status for persona interview session {session_id}")
+
+    try:
+        if not session_id or not session_id.strip():
+            raise ValueError("session_id is required")
+
+        # Get session data
+        session = persona_builder.interview_engine.get_session_data(session_id)
+        if not session:
+            return {
+                "success": False,
+                "error": f"Session {session_id} not found",
+                "error_type": "session_not_found",
+                "suggested_action": "Start a new interview session with create_interactive_persona",
+            }
+
+        # Get detailed session summary
+        summary = persona_builder.interview_engine.get_interview_summary(session_id)
+
+        return {
+            "success": True,
+            "data": {
+                "session_id": session_id,
+                "status": "completed" if session.is_completed else "in_progress",
+                "summary": summary,
+                "current_ring": (
+                    session.current_ring.value
+                    if not session.is_completed
+                    else "completed"
+                ),
+                "total_responses": len(session.responses),
+                "started_at": session.started_at.isoformat(),
+                "completed_at": (
+                    session.completed_at.isoformat() if session.completed_at else None
+                ),
+            },
+            "metadata": {
+                "methodology": "interactive_buyer_persona_generator",
+                "version": "1.0.0",
+                "timestamp": datetime.now().isoformat(),
+            },
+        }
+
+    except ValueError as e:
+        logger.warning(f"Validation error in get_persona_interview_status: {str(e)}")
+        return {"success": False, "error": str(e), "error_type": "validation_error"}
+    except Exception as e:
+        logger.error(f"Error in get_persona_interview_status: {str(e)}")
+        return {
+            "success": False,
+            "error": f"Failed to get session status: {str(e)}",
+            "error_type": "status_error",
+            "session_id": session_id,
+        }
 
 
 def main() -> None:

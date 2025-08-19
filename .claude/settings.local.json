@@ -35,9 +35,23 @@
       "Bash(mv:*)",
       "Bash(pip show:*)",
       "Bash(isort --version)",
-      "Bash(isort:*)"
+      "Bash(isort:*)",
+      "Bash(uv pip compile:*)",
+      "Bash(docker build -t osp-marketing-tools:test .)",
+      "mcp__zen__challenge",
+      "Bash(echo \"Exit code: $?\")",
+      "Bash(npm publish:*)",
+      "Bash(claude mcp add:*)",
+      "Bash(claude mcp:*)",
+      "Bash(npx ipcom-marketing-ai:*)",
+      "Bash(npx:*)",
+      "Bash(claude:*)",
+      "Bash(npm cache clean:*)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "additionalDirectories": [
+      "/Users/fabiotheodoro/.nvm/versions/node/v22.12.0/lib/node_modules/ipcom-marketing-ai"
+    ]
   }
 }

@@ -445,6 +445,8 @@ services:
 
 ## 💡 Usage Examples
 
+Explore o poder de cada ferramenta com exemplos práticos, do básico ao avançado.
+
 ### 🗺️ Value Map Generation
 
 **Basic Usage:**
@@ -526,6 +528,108 @@ Create a content marketing campaign using STEPPS framework for our new developer
 
 ```
 Develop a comprehensive content strategy using RACE planning framework integrated with our OSP value map for maximum impact.
+```
+
+---
+
+## 🛠️ Exemplos por Ferramenta Individual
+
+### 📝 `get_writing_guide()`
+
+**Uso Básico (Para Iniciantes):**
+
+```
+Me dê um guia de escrita para um post de blog sobre tecnologia.
+```
+
+**Uso Avançado (Para Profissionais):**
+
+```
+Generate the OSP writing guide for an API reference document (document_type: 'api'), targeting expert-level audience (audience_level: 'expert'), with focus on technical precision (content_focus: 'technical') and include quality checklists (include_checklists: true).
+```
+
+### 🔍 `get_on_page_seo_guide()`
+
+**Uso Básico (Para Iniciantes):**
+
+```
+Como posso otimizar o SEO da página do meu novo produto?
+```
+
+**Uso Avançado (Para Profissionais):**
+
+```
+Analyze this HTML content for on-page SEO optimization:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Como implementar DevOps</title>
+    <meta name="description" content="Guia sobre DevOps">
+</head>
+<body>
+    <h1>DevOps para iniciantes</h1>
+    <p>DevOps é importante para desenvolvimento de software.</p>
+    <h2>Benefícios</h2>
+    <p>Acelera o desenvolvimento.</p>
+</body>
+</html>
+```
+
+### 📚 `get_technical_writing_2025()`
+
+**Uso Básico (Para Iniciantes):**
+
+```
+Quais são as boas práticas para escrever documentação técnica em 2025?
+```
+
+**Uso Avançado (Para Profissionais):**
+
+```
+Generate a Docs-as-Code guide (framework_focus: 'docs-as-code') for an API tutorial (documentation_type: 'tutorial') with advanced complexity (complexity_level: 'advanced'), for a large team (team_size: 'large') with full automation (automation_level: 'full').
+```
+
+### 🎯 `get_seo_frameworks_2025()`
+
+**Uso Básico (Para Iniciantes):**
+
+```
+O que é E-E-A-T e como aplico no meu site?
+```
+
+**Uso Avançado (Para Profissionais):**
+
+```
+Provide Entity-Based SEO guide (framework_focus: 'entity-based') to increase domain authority (optimization_goal: 'authority'), for content refresh (content_maturity: 'refresh') with transactional search intent (search_intent: 'transactional').
+```
+
+### 📋 `get_methodology_versions()`
+
+**Uso Básico (Para Iniciantes):**
+
+```
+Quais são as versões das metodologias de marketing que esta ferramenta usa?
+```
+
+**Uso Avançado (Para Profissionais):**
+
+```
+Check all methodology versions to ensure our content validation pipeline aligns with the latest rules, especially for SEO 2025 frameworks.
+```
+
+### ⚕️ `health_check()`
+
+**Uso Básico (Para Iniciantes):**
+
+```
+A ferramenta de marketing está funcionando corretamente?
+```
+
+**Uso Avançado (Para Profissionais):**
+
+```
+Run comprehensive health check and return cache performance metrics, methodology resource access status, and response times to diagnose potential system bottlenecks.
 ```
 
 ---
@@ -692,6 +796,7 @@ Optimize content using E-E-A-T framework and entity-based SEO principles.
 ### Claude Code Integration
 
 **Recommended Method:**
+
 ```bash
 # 1. Install globally
 npm install -g ipcom-marketing-ai@latest
@@ -701,6 +806,7 @@ claude mcp add ipcom-marketing-ai ipcom-marketing-ai
 ```
 
 **Manual Configuration:**
+
 ```json
 {
   "mcpServers": {
