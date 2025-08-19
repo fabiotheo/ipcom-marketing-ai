@@ -37,10 +37,10 @@ def get_version() -> str:
                 return str(project_data["project"]["version"])
 
         # Last fallback
-        return "0.3.6"
+        return "0.4.0"
     except Exception:
         # Fallback version if file reading fails
-        return "0.3.6"
+        return "0.4.0"
 
 
 # Cache the version to avoid repeated file reads

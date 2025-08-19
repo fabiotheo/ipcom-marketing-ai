@@ -18,8 +18,9 @@ from .batch import BatchItem, batch_manager
 from .cache import AdvancedLRUCache, LRUCache
 from .cache import cache_manager as cache_mgr
 from .config import Config, config_manager
-from .persona_builder import PersonaBuilder
 from .i18n_questions import QuestionTranslations
+from .natural_language import quick_persona, use_ipcom_marketing_ai
+from .persona_builder import PersonaBuilder
 from .version import __version__
 
 
@@ -1256,10 +1257,99 @@ async def cleanup_expired_cache() -> Dict[str, Any]:
 
 @mcp.tool()
 @handle_exceptions
+async def use_marketing_ai(prompt: str) -> Dict[str, Any]:
+    """Natural language interface for IPCOM Marketing AI - use simple commands in any language.
+
+    Examples:
+    - "criar uma persona para meu produto de gestão financeira"
+    - "create a buyer persona for my SaaS that helps with project management"
+    - "gerar persona para minha consultoria de marketing digital"
+    - "I need a persona for my e-commerce platform"
+
+    The system will:
+    1. Automatically detect your language (Portuguese or English)
+    2. Extract your product/service context
+    3. Start an interactive interview
+    4. Generate a complete buyer persona
+
+    Args:
+        prompt: Your natural language command describing what you want
+
+    Returns:
+        Interview session with first question or error if command not understood
+    """
+    logger.info(f"Natural language command received: {prompt[:100]}...")
+
+    try:
+        result = await use_ipcom_marketing_ai(prompt)
+        return result
+    except Exception as e:
+        logger.error(f"Error in natural language interface: {str(e)}")
+        return {
+            "success": False,
+            "error": f"Failed to process command: {str(e)}",
+            "suggestion": "Try: 'create a persona for [your product description]'",
+            "examples": [
+                "criar uma persona para meu app de delivery",
+                "create a buyer persona for my consulting firm",
+                "gerar persona para meu SaaS de RH",
+            ],
+        }
+
+
+@mcp.tool()
+@handle_exceptions
+async def quick_start_persona(product_description: str) -> Dict[str, Any]:
+    """Quick start persona creation with automatic language detection.
+
+    Simpler alternative that just needs your product description.
+    Language is automatically detected from your description.
+
+    Args:
+        product_description: Description of your product/service in any language
+
+    Returns:
+        Interview session ready to start
+    """
+    logger.info(f"Quick persona start for: {product_description[:100]}...")
+
+    try:
+        result = await quick_persona(product_description)
+
+        if result["success"]:
+            lang_name = "Portuguese" if result["language"] == "pt-br" else "English"
+            return {
+                "success": True,
+                "message": f"🎯 Persona interview started in {lang_name}",
+                "session_id": result["session_id"],
+                "first_question": result["first_question"],
+                "progress": result["progress"],
+                "language": result["language"],
+                "product_context": result["product_context"],
+                "next_step": "Answer the question and use continue_persona_interview to proceed",
+            }
+        return result
+
+    except Exception as e:
+        logger.error(f"Error in quick start: {str(e)}")
+        return {
+            "success": False,
+            "error": f"Failed to start persona creation: {str(e)}",
+            "suggestion": "Please provide a clear product/service description",
+        }
+
+
+@mcp.tool()
+@handle_exceptions
 async def create_interactive_persona(
     product_context: str = "", start_interview: bool = True, language: str = "en"
 ) -> Dict[str, Any]:
     """Create an Interactive Buyer Persona using Adele Revella's 5 Rings of Buying Insight methodology.
+
+    🎯 IMPORTANT: If you're having trouble accessing this tool:
+    1. Configure MCP: npx ipcom-marketing-ai configure
+    2. Use standalone: npx ipcom-marketing-ai demo
+    3. Check status: npx ipcom-marketing-ai status
 
     This tool guides users through a comprehensive interview process to build evidence-based buyer personas
     with integrated market research, quality assurance, and fallback data for reliability.
@@ -1283,6 +1373,14 @@ async def create_interactive_persona(
                 "error": f"Unsupported language '{language}'. Available languages: {list(available_languages.keys())}",
                 "error_type": "language_validation",
                 "available_languages": available_languages,
+                "troubleshooting": {
+                    "note": "If this tool is not recognized in Claude Code:",
+                    "steps": [
+                        "1. Run: npx ipcom-marketing-ai configure",
+                        "2. Restart Claude Code",
+                        "3. Or use standalone: npx ipcom-marketing-ai demo",
+                    ],
+                },
             }
 
         # Initialize persona builder with specified language
@@ -1372,6 +1470,27 @@ async def create_interactive_persona(
 
     except Exception as e:
         logger.error(f"Error in create_interactive_persona: {str(e)}")
+
+        # Check if it's an MCP-related error
+        error_msg = str(e).lower()
+        if "mcp" in error_msg or "tool" in error_msg or "not found" in error_msg:
+            return {
+                "success": False,
+                "error": f"Failed to initialize persona generator: {str(e)}",
+                "error_type": "initialization_error",
+                "suggested_action": "Check system configuration and dependencies",
+                "mcp_troubleshooting": {
+                    "message": "This might be an MCP configuration issue.",
+                    "solutions": [
+                        "1. Configure MCP: npx ipcom-marketing-ai configure",
+                        "2. Use standalone mode: npx ipcom-marketing-ai demo",
+                        "3. Check installation: npx ipcom-marketing-ai status",
+                        "4. Restart Claude Code after configuration",
+                    ],
+                    "documentation": "https://github.com/fabiotheo/ipcom-marketing-ai",
+                },
+            }
+
         return {
             "success": False,
             "error": f"Failed to initialize persona generator: {str(e)}",
@@ -1568,10 +1687,114 @@ async def get_persona_interview_status(session_id: str) -> Dict[str, Any]:
 
 def main() -> None:
     """Run the MCP server."""
+    import os
+    import sys
+
     try:
+        # Check if running in MCP context
+        if not os.environ.get("MCP_SERVER_NAME"):
+            print("\n" + "=" * 70)
+            print("🚨 OSP Marketing Tools - MCP Configuration Required")
+            print("=" * 70)
+            print()
+            print("❌ ERROR: MCP server environment not detected.")
+            print()
+            print(
+                "This server needs to be configured with Claude Code to work properly."
+            )
+            print()
+            print("📝 QUICK FIX OPTIONS:")
+            print()
+            print("1. AUTOMATIC SETUP (Recommended):")
+            print("   npx ipcom-marketing-ai configure")
+            print()
+            print("2. STANDALONE MODE (No MCP Required):")
+            print("   npx ipcom-marketing-ai demo")
+            print()
+            print("3. CHECK STATUS:")
+            print("   npx ipcom-marketing-ai status")
+            print()
+            print("4. MANUAL CONFIGURATION:")
+            print("   - Open Claude Code settings")
+            print("   - Add MCP server configuration")
+            print("   - Restart Claude Code")
+            print()
+            print("📚 Documentation: https://github.com/fabiotheo/ipcom-marketing-ai")
+            print("📧 Support: contato@openpartners.com.br")
+            print("=" * 70)
+            print()
+
+            # Still try to run in case it's a different MCP client
+            logger.warning(
+                "MCP environment not detected, attempting to start anyway..."
+            )
+
         mcp.run()
+
+    except ImportError as e:
+        if "mcp" in str(e).lower():
+            print("\n" + "=" * 70)
+            print("🚨 OSP Marketing Tools - Installation Error")
+            print("=" * 70)
+            print()
+            print("❌ ERROR: MCP dependencies not installed.")
+            print()
+            print("📝 SOLUTION:")
+            print("   pip install mcp")
+            print()
+            print("Or use the NPM wrapper which handles dependencies:")
+            print("   npm install -g ipcom-marketing-ai")
+            print("   npx ipcom-marketing-ai demo")
+            print()
+            print("=" * 70)
+            print()
+        else:
+            print(f"\n❌ Import error: {str(e)}")
+        raise
+
     except Exception as e:
-        print(f"Error starting server: {str(e)}")
+        error_msg = str(e).lower()
+
+        # Check for common MCP errors
+        if "connection" in error_msg or "refused" in error_msg:
+            print("\n" + "=" * 70)
+            print("🚨 OSP Marketing Tools - Connection Error")
+            print("=" * 70)
+            print()
+            print("❌ ERROR: Cannot connect to Claude Code.")
+            print()
+            print("📝 TROUBLESHOOTING:")
+            print("1. Ensure Claude Code is running")
+            print("2. Check MCP configuration:")
+            print("   npx ipcom-marketing-ai status")
+            print("3. Reconfigure if needed:")
+            print("   npx ipcom-marketing-ai configure")
+            print("4. Try standalone mode:")
+            print("   npx ipcom-marketing-ai demo")
+            print()
+            print("=" * 70)
+            print()
+
+        elif "permission" in error_msg:
+            print("\n" + "=" * 70)
+            print("🚨 OSP Marketing Tools - Permission Error")
+            print("=" * 70)
+            print()
+            print("❌ ERROR: Insufficient permissions.")
+            print()
+            print("📝 SOLUTIONS:")
+            print("1. Check file permissions")
+            print("2. Run with appropriate privileges")
+            print("3. Use NPM wrapper (handles permissions):")
+            print("   npx ipcom-marketing-ai")
+            print()
+            print("=" * 70)
+            print()
+
+        else:
+            print(f"\n❌ Error starting server: {str(e)}")
+            print("\n💡 Try: npx ipcom-marketing-ai demo")
+
         raise
 
 

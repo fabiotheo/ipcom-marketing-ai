@@ -5,7 +5,8 @@ Provides bilingual support for English and Portuguese Brazilian.
 Based on Adele Revella's 5 Rings of Buying Insight methodology.
 """
 
-from typing import Dict, Any, List
+from typing import Any, Dict, List
+
 from .persona_data_structures import RingType
 
 

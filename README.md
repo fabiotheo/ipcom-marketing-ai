@@ -1,871 +1,92 @@
-# IPCOM Marketing AI - Advanced Marketing Tools for LLMs
+# IPCOM Marketing AI - Zero-Config Marketing Tools 🚀
 
 <div align="center">
 
 ![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue?style=flat-square)
-![Python](https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square)
+![Version](https://img.shields.io/badge/version-0.4.0-brightgreen?style=flat-square)
+![NPM](https://img.shields.io/npm/v/ipcom-marketing-ai?style=flat-square)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue?style=flat-square)
 ![MCP](https://img.shields.io/badge/MCP-compatible-green?style=flat-square)
-![Version](https://img.shields.io/badge/version-0.3.6-brightgreen?style=flat-square)
-![Frameworks](https://img.shields.io/badge/frameworks-2025-orange?style=flat-square)
-![](https://badge.mcpx.dev?type=server)
 
-**The most comprehensive suite of AI-powered marketing tools available**
-_Enhanced with cutting-edge 2025 frameworks_
+**🎯 Interactive Buyer Persona Generator + Enterprise Marketing Frameworks**
+_Zero configuration. Works everywhere. Bilingual support (EN/PT-BR)._
 
-[Quick Start](#quick-start) • [Installation](#installation) •
-[Examples](#usage-examples) • [Frameworks](#2025-frameworks) •
-[Documentation](#complete-tool-reference)
+[**🎭 Try Demo Now**](#-instant-demo-no-setup) •
+[**⚡ Quick Install**](#-quick-install-30-seconds) •
+[**📚 Documentation**](#-complete-documentation)
 
 </div>
 
 ---
 
-## 📖 Table of Contents
+## 🎨 What's New in v0.4.0
 
-- [Overview](#overview)
-- [🚀 Quick Start](#quick-start)
-- [✨ Features](#features)
-- [🆕 2025 Frameworks](#2025-frameworks)
-- [📥 Installation](#installation)
-  - [Method 1: Direct Installation (Recommended)](#method-1-direct-installation-recommended)
-  - [Method 2: Development Installation](#method-2-development-installation)
-  - [Method 3: Docker Installation](#method-3-docker-installation)
-- [⚙️ Configuration](#configuration)
-- [💡 Usage Examples](#usage-examples)
-- [🛠️ Complete Tool Reference](#complete-tool-reference)
-- [🔧 Advanced Usage Patterns](#advanced-usage-patterns)
-- [🔗 Integration Examples](#integration-examples)
-- [🐛 Troubleshooting](#troubleshooting)
-- [🤝 Contributing](#contributing)
-- [📋 Roadmap](#roadmap)
-- [📄 License](#license)
+### 🗣️ **Natural Language Interface** (NEW!)
 
----
+- 💬 **Use simple commands** - "criar uma persona para meu produto X"
+- 🌐 **Auto-detect language** - Works in Portuguese or English
+- 🎯 **Extract context** - Understands your product from description
+- ⚡ **Instant start** - No need to specify parameters
 
-## Overview
+### ✨ **Zero-Config Experience**
 
-**IPCOM Marketing AI** is a comprehensive suite of AI-powered tools for
-technical marketing content creation, optimization, and product positioning.
-Built on proven methodologies from
-[Open Strategy Partners](https://openstrategypartners.com) and enhanced with
-cutting-edge 2025 frameworks including **IDEAL**, **STEPPS**, **E-E-A-T**, and
-**GDocP**.
+- 🚀 **Automatic MCP setup** - Works instantly with Claude Code
+- 🎭 **Standalone demo mode** - Try without any configuration
+- 🔧 **Smart auto-detection** - Finds and configures Claude Code automatically
+- 📦 **Post-install automation** - Everything configured during npm install
+- 🌍 **Works everywhere** - Windows, Mac, Linux support
 
-This software leverages the
-[Model Context Protocol (MCP)](https://openstrategypartners.com/blog/the-model-context-protocol-unify-your-marketing-stack-with-ai/)
-to provide seamless integration with any MCP-compatible LLM client, making it
-the **most comprehensive marketing toolkit available** for AI-assisted content
-creation.
+### 🗣️ **Interactive Buyer Persona Generator**
 
-### 🎯 Why Choose OSP Marketing Tools?
-
-| Feature             | IPCOM Marketing AI            | Traditional Tools    | Generic AI             |
-| ------------------- | ----------------------------- | -------------------- | ---------------------- |
-| **Frameworks**      | 8 modern methodologies (2025) | 1-2 outdated methods | No structured approach |
-| **Integration**     | Native MCP support            | Manual copy/paste    | Limited context        |
-| **Content Quality** | Professional-grade            | Inconsistent         | Variable               |
-| **Specialization**  | Technical marketing focus     | Generic content      | General purpose        |
-| **Updates**         | Regular framework updates     | Rarely updated       | No updates             |
+- 🇺🇸 🇧🇷 **Bilingual support** - English and Portuguese Brazilian
+- 🎯 **Adele Revella's 5 Rings** methodology
+- 📊 **Quality scoring** with confidence metrics
+- 🤖 **Smart interview engine** with dynamic questions
+- 📈 **Market research integration**
 
 ---
 
-## 🚀 Quick Start
+## 🎭 Instant Demo (No Setup!)
 
-Get up and running in **less than 30 seconds**:
-
-### Step 1: Install IPCOM Marketing AI
+Try the Interactive Buyer Persona Generator right now:
 
 ```bash
-# Recommended: Global installation for Claude Code
-npm install -g ipcom-marketing-ai@latest
-claude mcp add ipcom-marketing-ai ipcom-marketing-ai
-
-# Alternative: Direct Python installation
-uvx --from git+https://github.com/fabiotheo/ipcom-marketing-ai@main osp_marketing_tools
+npx ipcom-marketing-ai demo
 ```
 
-### Step 2: Configure Claude Desktop
-
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "ipcom_marketing_ai": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/fabiotheo/ipcom-marketing-ai@main",
-        "osp_marketing_tools"
-      ]
-    }
-  }
-}
-```
-
-### Step 3: Start Creating
-
-Open Claude Desktop and try:
-
-```
-"Analyze this content using the IDEAL framework: [your content]"
-```
-
-**That's it!** You now have access to 16 professional marketing tools with 8
-modern frameworks, including powerful batch processing capabilities.
+That's it! No installation, no configuration. Just works. 🎉
 
 ---
 
-## ✨ Features
+## ⚡ Quick Install (30 seconds)
 
-### 🏗️ **Core OSP Methodologies**
-
-Professional content creation tools based on proven Open Strategy Partners
-methodologies:
-
-- **🗺️ Product Value Map Generator** - Structured product positioning and value
-  communication
-- **🏷️ Meta Information Generator** - SEO-optimized metadata creation
-- **✏️ Content Editing Codes** - Semantic editing system for comprehensive
-  content review
-- **📝 Technical Writing Guide** - Systematic approach to high-quality technical
-  content
-- **🔍 On-Page SEO Guide** - Comprehensive SEO optimization system
-
-### 🆕 **2025 Enhancement Frameworks**
-
-Cutting-edge methodologies for modern content creation:
-
-- **📊 Marketing Frameworks 2025** - IDEAL, STEPPS, RACE, STP frameworks
-- **📖 Technical Writing 2025** - GDocP (ALCOA-C), Docs-as-Code, Interactive
-  Documentation
-- **🎯 SEO Frameworks 2025** - E-E-A-T, Entity-Based SEO, Topic Clusters, Core
-  Web Vitals
-
-### 🧠 **Advanced Analysis Tools**
-
-Intelligent content analysis and optimization:
-
-- **🔄 Multi-Framework Analysis** - Analyze content across multiple
-  methodologies (95%+ test coverage)
-- **📊 Methodology Versioning** - Track framework versions and updates
-- **💡 Content Intelligence** - AI-powered insights and recommendations
-- **⚡ High Performance** - 4ms average single framework analysis, 2ms
-  multi-framework
-- **🔍 Quality Assurance** - Comprehensive testing with automated CI/CD pipeline
-
-### 🎭 **Interactive Buyer Persona Generator (NEW!)**
-
-Evidence-based buyer persona creation using Adele Revella's proven methodology:
-
-- **🗣️ Bilingual Support** - Complete interview system in English and Portuguese Brazilian
-- **🎯 5 Rings Methodology** - Priority Initiative, Success Factors, Perceived Barriers, Decision Criteria, Buyer's Journey
-- **🔬 Quality Assurance** - Confidence scoring and cross-ring validation
-- **📊 Market Research Integration** - Automated research to enrich personas
-- **🌍 Localized Experience** - Culturally appropriate questions and context
-- **⚡ Real-time Interview** - Dynamic questioning with context-aware follow-ups
-
-### 🚀 **Batch Processing & Performance (v0.3.0)**
-
-Enterprise-grade batch processing and advanced caching:
-
-- **🔄 Parallel Batch Processing** - Process multiple content items
-  simultaneously with configurable workers
-- **📈 Priority Queue System** - High-priority content processed first for
-  optimal workflow
-- **📊 Real-time Progress Tracking** - Monitor batch completion with detailed
-  metrics and estimates
-- **🛑 Cancellation Support** - Cancel running batches safely without data loss
-- **📋 Batch History** - Track and analyze batch processing performance over
-  time
-- **⚡ Advanced Cache System** - TTL, persistence, tag invalidation, and
-  multiple cache instances
-- **🏷️ Tag-based Invalidation** - Efficiently invalidate related cache entries
-- **💾 Persistent Caching** - Optional disk-based cache persistence across
-  restarts
-- **📊 Cache Analytics** - Detailed hit ratios, performance metrics, and
-  optimization insights
-
-### 🎯 **Batch Processing Use Cases**
-
-- **Content Migration**: Analyze large content libraries efficiently (10x faster
-  than sequential)
-- **Bulk Content Audits**: Process multiple articles, blog posts, or
-  documentation
-- **A/B Framework Testing**: Compare framework performance across content sets
-- **Quality Assurance**: Batch validate content before publication
-
----
-
-## 🆕 2025 Frameworks
-
-### 📈 Marketing Content Frameworks
-
-#### **IDEAL Framework**
-
-_Identify, Discover, Empower, Activate, Learn_
-
-Modern methodology for user-centered content creation in the digital
-environment:
-
-- **Identify**: Audience needs, pain points, and opportunities
-- **Discover**: Unique insights, trends, and positioning opportunities
-- **Empower**: Educational content with actionable value
-- **Activate**: Strategic calls-to-action and engagement
-- **Learn**: Continuous optimization through data and feedback
-
-#### **STEPPS Framework**
-
-_Social Currency, Triggers, Emotion, Public, Practical Value, Stories_
-
-Framework for creating viral and memorable content:
-
-- **Social Currency**: Content that makes readers look smart
-- **Triggers**: Mental associations for content recall
-- **Emotion**: Strong emotional impact for sharing
-- **Public**: Visible behaviors and social proof
-- **Practical Value**: Useful content that helps others
-- **Stories**: Narrative vehicles for information
-
-### ✍️ Technical Writing 2025
-
-#### **GDocP Framework**
-
-_Good Documentation Practices - ALCOA-C Principles_
-
-Pharmaceutical-grade standards adapted for technical documentation:
-
-- **Attributable**: Clear authorship and responsibility
-- **Legible**: Clarity and readability optimization
-- **Contemporaneous**: Real-time updates with changes
-- **Original**: Primary source authority
-- **Accurate**: Factual correctness and precision
-- **Complete**: Comprehensive coverage of topics
-
-#### **Docs-as-Code**
-
-Version control and collaboration for documentation:
-
-- Git-based documentation workflows
-- Automated publishing pipelines
-- Collaborative editing processes
-- Quality assurance automation
-
-### 🔍 SEO & Optimization 2025
-
-#### **E-E-A-T Framework**
-
-_Experience, Expertise, Authoritativeness, Trustworthiness_
-
-Google's evolved ranking framework with Experience addition:
-
-- **Experience**: First-hand demonstration of topic knowledge
-- **Expertise**: Deep subject matter specialization
-- **Authoritativeness**: Industry recognition and authority
-- **Trustworthiness**: Transparency and credibility signals
-
-#### **Entity-Based SEO**
-
-Semantic search optimization focusing on entities rather than keywords:
-
-- Entity identification and relationships
-- Semantic content structuring
-- Knowledge graph optimization
-- Topic cluster strategies
-
----
-
-## 📥 Installation
-
-Choose the installation method that best fits your workflow:
-
-### Method 1: Direct Installation (Recommended)
-
-**For most users - simple and automatic**
-
-#### Prerequisites
-
-- Python 3.10+
-- Claude Desktop or compatible MCP client
-
-#### Installation
+### Option 1: NPM (Recommended)
 
 ```bash
-# Install via uvx (automatic dependency management)
-uvx --from git+https://github.com/open-strategy-partners/osp_marketing_tools@main osp_marketing_tools
+# Install globally
+npm install -g ipcom-marketing-ai
+
+# Auto-configure for Claude Code
+npx ipcom-marketing-ai configure
+
+# Done! Restart Claude Code and tools are available
 ```
 
-#### Configuration
-
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "ipcom_marketing_ai": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/fabiotheo/ipcom-marketing-ai@main",
-        "osp_marketing_tools"
-      ]
-    }
-  }
-}
-```
-
-### Method 2: Development Installation
-
-**For developers and contributors**
-
-#### Clone and Install
+### Option 2: Claude Code Integration
 
 ```bash
-git clone https://github.com/open-strategy-partners/osp_marketing_tools.git
-cd osp_marketing_tools
-pip install -e .
+# One command setup
+claude mcp add ipcom-marketing-ai "npx ipcom-marketing-ai"
 ```
 
-#### Configure Development Mode
+### Option 3: Manual MCP Config
 
-```json
-{
-  "mcpServers": {
-    "osp_marketing_tools": {
-      "command": "python",
-      "args": ["-m", "osp_marketing_tools.server"],
-      "cwd": "/path/to/osp_marketing_tools"
-    }
-  }
-}
-```
-
-### Method 3: Docker Installation
-
-**For containerized environments**
-
-#### Dockerfile
-
-```dockerfile
-FROM python:3.10-slim
-WORKDIR /app
-RUN pip install git+https://github.com/open-strategy-partners/osp_marketing_tools@main
-CMD ["python", "-m", "osp_marketing_tools.server"]
-```
-
-#### Docker Compose
-
-```yaml
-version: "3.8"
-services:
-  osp-marketing-tools:
-    build: .
-    ports:
-      - "8000:8000"
-    environment:
-      - OSP_LOG_LEVEL=INFO
-```
-
----
-
-## ⚙️ Configuration
-
-### Basic Configuration
-
-**Location**: `~/.config/claude/claude_desktop_config.json`
+Add to `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "ipcom_marketing_ai": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/fabiotheo/ipcom-marketing-ai@main",
-        "osp_marketing_tools"
-      ]
-    }
-  }
-}
-```
-
-### Advanced Configuration Examples
-
-#### Scenario 1: Marketing Team Setup
-
-```json
-{
-  "mcpServers": {
-    "osp_marketing_tools": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
-        "osp_marketing_tools"
-      ],
-      "env": {
-        "OSP_LOG_LEVEL": "INFO",
-        "OSP_CACHE_ENABLED": "true"
-      }
-    }
-  }
-}
-```
-
-#### Scenario 2: Development Environment
-
-```json
-{
-  "mcpServers": {
-    "osp_marketing_tools": {
-      "command": "python",
-      "args": ["-m", "osp_marketing_tools.server"],
-      "cwd": "/path/to/local/osp_marketing_tools",
-      "env": {
-        "OSP_LOG_LEVEL": "DEBUG",
-        "OSP_CACHE_ENABLED": "false"
-      }
-    }
-  }
-}
-```
-
-#### Scenario 3: Enterprise Setup
-
-```json
-{
-  "mcpServers": {
-    "osp_marketing_tools": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://internal-git.company.com/marketing/osp_marketing_tools@stable",
-        "osp_marketing_tools"
-      ],
-      "env": {
-        "OSP_LOG_LEVEL": "WARNING",
-        "OSP_CACHE_ENABLED": "true",
-        "OSP_API_KEY": "${COMPANY_OSP_KEY}"
-      }
-    }
-  }
-}
-```
-
----
-
-## 💡 Usage Examples
-
-Explore o poder de cada ferramenta com exemplos práticos, do básico ao avançado.
-
-### 🎭 Interactive Buyer Persona Generator
-
-**Start Bilingual Interview:**
-
-```
-Create an interactive buyer persona in Portuguese for our AI productivity platform targeting Brazilian developers.
-```
-
-**English Interview:**
-
-```
-create_interactive_persona(
-    product_context="AI-powered development tools for enterprise teams",
-    language="en"
-)
-```
-
-**Portuguese Interview:**
-
-```
-create_interactive_persona(
-    product_context="Plataforma de IA para produtividade de equipes de desenvolvimento",
-    language="pt-br"
-)
-```
-
-**Continue Interview Process:**
-
-```
-continue_persona_interview(
-    session_id="your-session-id",
-    response="Our team was losing 3+ hours daily organizing emails and tasks manually",
-    language="en"
-)
-```
-
-### 🗺️ Value Map Generation
-
-**Basic Usage:**
-
-```
-Generate an OSP value map for CloudDeploy, focusing on DevOps engineers with these features:
-- Automated deployment pipeline
-- Infrastructure as code support
-- Real-time monitoring
-- Multi-cloud compatibility
-```
-
-**Advanced with 2025 Frameworks:**
-
-```
-Create a value map for our API management platform using both OSP methodology and IDEAL framework analysis. Target audience: Senior backend developers at scale-ups.
-```
-
-### 📊 Multi-Framework Content Analysis
-
-**Analyze with Multiple Frameworks:**
-
-```
-Analyze this blog post using IDEAL, STEPPS, and E-E-A-T frameworks:
-
-[Insert your content here]
-```
-
-**Framework-Specific Analysis:**
-
-```
-Use the GDocP framework to evaluate this technical documentation for completeness and accuracy:
-
-[Insert documentation here]
-```
-
-### 🏷️ SEO-Optimized Metadata
-
-**Basic Meta Generation:**
-
-```
-Generate meta information for an article about "Kubernetes deployment strategies".
-Primary keyword: "kubernetes deployment", audience: DevOps engineers, content type: technical guide
-```
-
-**2025 SEO Framework:**
-
-```
-Create E-E-A-T optimized metadata for our expert guide on container orchestration, including entity-based SEO recommendations.
-```
-
-### ✏️ Content Editing and Enhancement
-
-**OSP Editing Codes:**
-
-```
-Review this content using OSP editing codes:
-
-"Kubernetes helps you manage containers. It's really good at what it does. You can use it to deploy your apps and make them run better."
-```
-
-**Technical Writing 2025:**
-
-```
-Apply GDocP principles to improve this API documentation:
-
-[Insert documentation content]
-```
-
-### 🎯 Marketing Campaign Creation
-
-**STEPPS Framework Campaign:**
-
-```
-Create a content marketing campaign using STEPPS framework for our new developer tool launch. Focus on Social Currency and Practical Value elements.
-```
-
-**Integrated Approach:**
-
-```
-Develop a comprehensive content strategy using RACE planning framework integrated with our OSP value map for maximum impact.
-```
-
----
-
-## 🛠️ Exemplos por Ferramenta Individual
-
-### 📝 `get_writing_guide()`
-
-**Uso Básico (Para Iniciantes):**
-
-```
-Me dê um guia de escrita para um post de blog sobre tecnologia.
-```
-
-**Uso Avançado (Para Profissionais):**
-
-```
-Generate the OSP writing guide for an API reference document (document_type: 'api'), targeting expert-level audience (audience_level: 'expert'), with focus on technical precision (content_focus: 'technical') and include quality checklists (include_checklists: true).
-```
-
-### 🔍 `get_on_page_seo_guide()`
-
-**Uso Básico (Para Iniciantes):**
-
-```
-Como posso otimizar o SEO da página do meu novo produto?
-```
-
-**Uso Avançado (Para Profissionais):**
-
-```
-Analyze this HTML content for on-page SEO optimization:
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Como implementar DevOps</title>
-    <meta name="description" content="Guia sobre DevOps">
-</head>
-<body>
-    <h1>DevOps para iniciantes</h1>
-    <p>DevOps é importante para desenvolvimento de software.</p>
-    <h2>Benefícios</h2>
-    <p>Acelera o desenvolvimento.</p>
-</body>
-</html>
-```
-
-### 📚 `get_technical_writing_2025()`
-
-**Uso Básico (Para Iniciantes):**
-
-```
-Quais são as boas práticas para escrever documentação técnica em 2025?
-```
-
-**Uso Avançado (Para Profissionais):**
-
-```
-Generate a Docs-as-Code guide (framework_focus: 'docs-as-code') for an API tutorial (documentation_type: 'tutorial') with advanced complexity (complexity_level: 'advanced'), for a large team (team_size: 'large') with full automation (automation_level: 'full').
-```
-
-### 🎯 `get_seo_frameworks_2025()`
-
-**Uso Básico (Para Iniciantes):**
-
-```
-O que é E-E-A-T e como aplico no meu site?
-```
-
-**Uso Avançado (Para Profissionais):**
-
-```
-Provide Entity-Based SEO guide (framework_focus: 'entity-based') to increase domain authority (optimization_goal: 'authority'), for content refresh (content_maturity: 'refresh') with transactional search intent (search_intent: 'transactional').
-```
-
-### 📋 `get_methodology_versions()`
-
-**Uso Básico (Para Iniciantes):**
-
-```
-Quais são as versões das metodologias de marketing que esta ferramenta usa?
-```
-
-**Uso Avançado (Para Profissionais):**
-
-```
-Check all methodology versions to ensure our content validation pipeline aligns with the latest rules, especially for SEO 2025 frameworks.
-```
-
-### ⚕️ `health_check()`
-
-**Uso Básico (Para Iniciantes):**
-
-```
-A ferramenta de marketing está funcionando corretamente?
-```
-
-**Uso Avançado (Para Profissionais):**
-
-```
-Run comprehensive health check and return cache performance metrics, methodology resource access status, and response times to diagnose potential system bottlenecks.
-```
-
----
-
-## 🛠️ Complete Tool Reference
-
-### 📋 OSP Legacy Tools (v1.0.0)
-
-| Tool                                | Purpose                     | Input                  | Output                    |
-| ----------------------------------- | --------------------------- | ---------------------- | ------------------------- |
-| `get_editing_codes()`               | Content editing and review  | Text content           | Semantic editing analysis |
-| `get_writing_guide()`               | Technical writing standards | Content type, audience | Writing guidelines        |
-| `get_meta_guide()`                  | SEO metadata generation     | Content, keywords      | Optimized metadata        |
-| `get_value_map_positioning_guide()` | Product positioning         | Product features       | Value map structure       |
-| `get_on_page_seo_guide()`           | SEO optimization            | Web content            | SEO recommendations       |
-
-### 🆕 2025 Enhancement Tools (v2025.1)
-
-| Tool                                | Purpose                          | Frameworks                | Advanced Features            |
-| ----------------------------------- | -------------------------------- | ------------------------- | ---------------------------- |
-| `get_marketing_frameworks_2025()`   | Modern marketing methodologies   | IDEAL, STEPPS, RACE, STP  | Multi-framework analysis     |
-| `get_technical_writing_2025()`      | Advanced documentation practices | GDocP, Docs-as-Code       | Quality assurance automation |
-| `get_seo_frameworks_2025()`         | Next-gen SEO optimization        | E-E-A-T, Entity-Based SEO | Core Web Vitals integration  |
-| `analyze_content_multi_framework()` | Cross-framework content analysis | All 2025 frameworks       | Comparative insights         |
-| `get_methodology_versions()`        | Framework version management     | Version tracking          | Update notifications         |
-
-### 🎭 Interactive Buyer Persona Tools (NEW!)
-
-| Tool                           | Purpose                       | Languages  | Features                     |
-| ------------------------------ | ----------------------------- | ---------- | ---------------------------- |
-| `create_interactive_persona()` | Start bilingual persona interview | EN, PT-BR  | 5 Rings methodology, Quality scoring |
-| `continue_persona_interview()` | Continue persona interview    | EN, PT-BR  | Dynamic questions, Follow-ups |
-| `get_persona_interview_status()` | Check interview progress     | All        | Progress tracking, Summary   |
-
-### 🔧 System Tools
-
-| Tool             | Purpose                | Features                        |
-| ---------------- | ---------------------- | ------------------------------- |
-| `health_check()` | System status and info | Version info, methodology count |
-
----
-
-## 📚 Documentation
-
-### Technical Documentation
-
-- **[Technical Documentation](docs/TECHNICAL_DOCUMENTATION.md)** - Comprehensive
-  technical overview, architecture, and implementation details
-- **[Developer Guide](docs/DEVELOPER_GUIDE.md)** - Development workflow, coding
-  standards, and contribution guidelines
-- **[API Reference](docs/API_REFERENCE.md)** - Complete API documentation with
-  examples and error handling
-
-### Quality Metrics
-
-- **Test Coverage**: 95.18% (622 statements, 30 missing)
-- **Test Suite**: 127 tests (110 passing)
-- **Performance**: 4ms avg single framework, 2ms multi-framework
-- **CI/CD**: Automated testing, linting, type checking, and deployment
-- **Code Quality**: Black formatting, Flake8 linting, Mypy type checking
-
-### Framework Implementation Status
-
-- ✅ **IDEAL Framework**: Complete with 5 components
-- ✅ **STEPPS Framework**: Complete with 6 components
-- ✅ **E-E-A-T Framework**: Complete with 4 components
-- ✅ **GDocP Framework**: Complete with 6 components
-- ✅ **Multi-Framework Analysis**: Unified analysis engine
-- ✅ **Performance Benchmarks**: Comprehensive test suite
-
----
-
-## 🔧 Advanced Usage Patterns
-
-### 🔄 Workflow Integration
-
-#### Content Creation Pipeline
-
-```mermaid
-graph LR
-    A[Idea] → B[IDEAL Analysis] → C[STEPPS Planning] → D[Content Creation] → E[OSP Editing] → F[E-E-A-T Optimization] → G[Publication]
-```
-
-#### Quality Assurance Workflow
-
-```mermaid
-graph TD
-    A[Draft Content] → B[GDocP Validation] → C[OSP Editing Codes] → D[Technical Review] → E[SEO Optimization] → F[Final Content]
-```
-
-### 📈 Content Strategy Development
-
-**Step 1: Audience Analysis**
-
-```
-Use IDEAL framework to identify target audience needs and pain points for our developer tool documentation.
-```
-
-**Step 2: Content Planning**
-
-```
-Apply RACE planning to develop a comprehensive content strategy from awareness to conversion.
-```
-
-**Step 3: Content Creation**
-
-```
-Create content using OSP writing guide principles enhanced with GDocP quality standards.
-```
-
-**Step 4: Optimization**
-
-```
-Optimize content using E-E-A-T framework and entity-based SEO principles.
-```
-
-### 🎯 Specialized Use Cases
-
-#### Technical Documentation
-
-```
-# Comprehensive technical writing
-1. Apply GDocP framework for structure
-2. Use OSP writing guide for clarity
-3. Implement Docs-as-Code for maintenance
-4. Optimize with E-E-A-T for discoverability
-```
-
-#### Marketing Content
-
-```
-# Viral marketing content creation
-1. STEPPS framework for shareability
-2. IDEAL framework for user focus
-3. OSP editing codes for quality
-4. Entity-based SEO for reach
-```
-
-#### Product Positioning
-
-```
-# Strategic product messaging
-1. OSP value map for positioning
-2. STP framework for targeting
-3. RACE planning for distribution
-4. E-E-A-T optimization for authority
-```
-
----
-
-## 🔗 Integration Examples
-
-### Claude Desktop Integration
-
-**Basic Setup:**
-
-```json
-{
-  "mcpServers": {
-    "ipcom_marketing_ai": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/fabiotheo/ipcom-marketing-ai@main",
-        "osp_marketing_tools"
-      ]
-    }
-  }
-}
-```
-
-### Claude Code Integration
-
-**Recommended Method:**
-
-```bash
-# 1. Install globally
-npm install -g ipcom-marketing-ai@latest
-
-# 2. Add to Claude MCP
-claude mcp add ipcom-marketing-ai ipcom-marketing-ai
-```
-
-**Manual Configuration:**
-
-```json
-{
-  "mcpServers": {
-    "ipcom_marketing_ai": {
+    "ipcom-marketing-ai": {
       "command": "npx",
       "args": ["ipcom-marketing-ai"]
     }
@@ -873,412 +94,365 @@ claude mcp add ipcom-marketing-ai ipcom-marketing-ai
 }
 ```
 
-**Location**: Add this configuration to your Claude Code MCP settings file.
+---
 
-**Usage in Claude Code:**
+## 🎯 Available Modes
+
+### 1. **MCP Mode** (Claude Code)
+
+Full integration with Claude Code - all tools available as native functions.
 
 ```bash
-# After configuration, use directly in Claude Code terminal:
-"Analyze this content using IDEAL framework: [your content]"
-"Generate value map for my SaaS product using OSP methodology"
-"Apply E-E-A-T analysis to this technical documentation"
+# Start MCP server
+npx ipcom-marketing-ai
+
+# Use in Claude Code:
+"Create an interactive buyer persona in Portuguese"
 ```
 
-### Continue IDE Integration
+### 2. **Standalone Mode** (CLI)
 
-**VS Code Extension Configuration:**
+Interactive command-line experience without MCP.
 
-```json
-{
-  "continue.mcp.servers": {
-    "osp_marketing_tools": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
-        "osp_marketing_tools"
-      ]
-    }
-  }
-}
+```bash
+# Run interactive demo
+npx ipcom-marketing-ai demo
 ```
 
-### LibreChat Integration
+### 3. **Configuration Mode**
 
-**Docker Compose Setup:**
+Automatic setup and troubleshooting.
 
-```yaml
-version: "3.8"
-services:
-  librechat:
-    image: ghcr.io/danny-avila/librechat:latest
-    environment:
-      - MCP_SERVERS=osp_marketing_tools
-    volumes:
-      - ./mcp_config.json:/app/mcp_config.json
-```
+```bash
+# Configure MCP
+npx ipcom-marketing-ai configure
 
-### Cursor IDE Integration
+# Check status
+npx ipcom-marketing-ai status
 
-**Settings Configuration:**
-
-```json
-{
-  "cursor.mcp.providers": [
-    {
-      "name": "osp_marketing_tools",
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
-        "osp_marketing_tools"
-      ]
-    }
-  ]
-}
+# Get help
+npx ipcom-marketing-ai help
 ```
 
 ---
 
-## 🐛 Troubleshooting
+## 🛠️ Core Features
+
+### 🎭 **Interactive Buyer Persona Generator**
+
+Create evidence-based buyer personas using Adele Revella's methodology:
+
+- **5 Rings of Buying Insight**:
+  - 🎯 Priority Initiative
+  - ✅ Success Factors
+  - 🚧 Perceived Barriers
+  - 📊 Decision Criteria
+  - 🗺️ Buyer's Journey
+
+- **Bilingual Support**:
+  - 🇺🇸 English - Full professional terminology
+  - 🇧🇷 Portuguese Brazilian - Native localization
+
+- **Quality Assurance**:
+  - Confidence scoring (0-100%)
+  - Cross-ring validation
+  - Market research integration
+  - Fallback data for reliability
+
+### 📚 **Marketing Frameworks 2025**
+
+8 cutting-edge methodologies for content excellence:
+
+#### Marketing Content
+
+- **IDEAL** - User-centered content creation
+- **STEPPS** - Viral content framework
+- **RACE** - Digital marketing planning
+- **STP** - Segmentation, Targeting, Positioning
+
+#### Technical Writing
+
+- **GDocP** - Pharmaceutical-grade documentation
+- **Docs-as-Code** - Version-controlled docs
+- **Interactive Docs** - Dynamic documentation
+
+#### SEO & Optimization
+
+- **E-E-A-T** - Google's quality framework
+- **Entity-Based SEO** - Semantic optimization
+- **Topic Clusters** - Content organization
+
+### ⚡ **Performance Features**
+
+- **Batch Processing** - Analyze multiple contents in parallel
+- **Advanced Caching** - TTL, persistence, smart invalidation
+- **Priority Queue** - Process important content first
+- **Real-time Progress** - Track batch operations
+- **95%+ Test Coverage** - Enterprise-grade reliability
+
+---
+
+## 💡 Usage Examples
+
+### Creating a Buyer Persona (Claude Code)
+
+#### 🆕 Natural Language Mode (NEW!)
+
+```python
+# Just describe what you want in natural language!
+use_marketing_ai("criar uma persona para meu produto de gestão financeira")
+use_marketing_ai("create a persona for my SaaS that helps teams collaborate")
+use_marketing_ai("gerar persona para minha consultoria de marketing digital")
+
+# Or use quick start with just your product description
+quick_start_persona("Meu app ajuda pequenas empresas com controle de estoque")
+quick_start_persona("AI-powered code review tool for developers")
+
+# Features:
+# ✅ Auto-detects language (PT/EN)
+# ✅ Extracts product context automatically
+# ✅ Validates input (min 10 characters)
+# ✅ Full error handling with helpful messages
+```
+
+#### Traditional Mode
+
+```python
+# Start interactive interview in English
+create_interactive_persona(language="en")
+
+# Start in Portuguese Brazilian
+create_interactive_persona(language="pt-br")
+
+# With product context
+create_interactive_persona(
+    product_context="SaaS project management tool",
+    language="en"
+)
+
+# Continue the interview (after answering first question)
+continue_persona_interview(
+    session_id="your_session_id",
+    response="Your answer to the question",
+    language="pt-br"
+)
+
+# Check interview status
+get_persona_interview_status(session_id="your_session_id")
+```
+
+### Standalone Demo
+
+```bash
+$ npx ipcom-marketing-ai demo
+
+🎯 INTERACTIVE BUYER PERSONA GENERATOR - STANDALONE MODE
+========================================================
+
+📋 SELECT LANGUAGE / SELECIONE O IDIOMA:
+
+  1. 🇺🇸 English (en)
+  2. 🇧🇷 Português Brasileiro (pt-br)
+
+Enter your choice (1-2): _
+```
+
+### Multi-Framework Analysis
+
+```python
+# Analyze content with all frameworks
+analyze_content_multi_framework(
+    content="Your marketing content here",
+    frameworks=["IDEAL", "STEPPS", "E-E-A-T", "GDocP"]
+)
+```
+
+### Batch Processing
+
+```python
+# Process multiple contents
+analyze_content_batch(
+    batch_id="content_audit_2025",
+    content_items=[
+        {"content": "Article 1", "frameworks": ["IDEAL", "E-E-A-T"]},
+        {"content": "Article 2", "frameworks": ["STEPPS", "GDocP"]},
+        {"content": "Article 3", "frameworks": ["IDEAL", "STEPPS"]}
+    ],
+    priority=1
+)
+```
+
+---
+
+## 🔧 Troubleshooting
+
+### MCP Not Recognized?
+
+```bash
+# Solution 1: Auto-configure
+npx ipcom-marketing-ai configure
+
+# Solution 2: Use standalone mode
+npx ipcom-marketing-ai demo
+
+# Solution 3: Check status
+npx ipcom-marketing-ai status
+```
 
 ### Common Issues
 
-#### ❌ Installation Problems
-
-**Issue**: `uvx: command not found`
-
-```bash
-# Solution: Install uv first
-pip install uv
-# Then retry installation
-```
-
-**Issue**: `Python version incompatible`
-
-```bash
-# Solution: Check Python version
-python --version
-# Ensure Python 3.10+ is installed
-```
-
-**Issue**: `Git repository not found`
-
-```bash
-# Solution: Check repository URL
-git ls-remote https://github.com/open-strategy-partners/osp_marketing_tools.git
-```
-
-#### ❌ Configuration Issues
-
-**Issue**: Tools not appearing in Claude Desktop
-
-```json
-// Solution: Check claude_desktop_config.json format
-{
-  "mcpServers": {
-    "osp_marketing_tools": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
-        "osp_marketing_tools"
-      ]
-    }
-  }
-}
-```
-
-**Issue**: Permission denied errors
-
-```bash
-# Solution: Fix permissions
-chmod +x ~/.config/claude/claude_desktop_config.json
-```
-
-#### ❌ Runtime Problems
-
-**Issue**: Tools timeout or fail
-
-```bash
-# Solution: Check logs
-tail -f ~/.claude/logs/mcp.log
-```
-
-**Issue**: Framework analysis returns empty results
-
-```
-# Solution: Check content input
-- Ensure content is not empty
-- Verify framework names are correct: IDEAL, STEPPS, E-E-A-T, GDocP
-```
-
-### Performance Optimization
-
-#### Cache Management
-
-```bash
-# Clear cache if needed
-rm -rf ~/.cache/osp_marketing_tools/
-```
-
-#### Memory Usage
-
-```bash
-# Monitor memory usage
-ps aux | grep osp_marketing_tools
-```
-
-### Debug Mode
-
-**Enable Debug Logging:**
-
-```json
-{
-  "mcpServers": {
-    "osp_marketing_tools": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/open-strategy-partners/osp_marketing_tools@main",
-        "osp_marketing_tools"
-      ],
-      "env": {
-        "OSP_LOG_LEVEL": "DEBUG"
-      }
-    }
-  }
-}
-```
+| Problem                       | Solution                                                  |
+| ----------------------------- | --------------------------------------------------------- |
+| Tool not found in Claude Code | Run `npx ipcom-marketing-ai configure` and restart Claude |
+| Python not found              | Install Python 3.8+ from python.org                       |
+| Permission denied             | Use `npm install -g` with appropriate privileges          |
+| MCP connection failed         | Check Claude Code is running                              |
 
 ### Getting Help
 
-1. **Check Documentation**: Review this README and tool reference
-2. **Search Issues**:
-   [GitHub Issues](https://github.com/open-strategy-partners/osp_marketing_tools/issues)
-3. **Create Issue**: Report bugs with reproduction steps
-4. **Community Support**: Join our discussions
-5. **Professional Support**:
-   [Contact OSP](https://openstrategypartners.com/contact/)
+- 📧 **Support**: contato@openpartners.com.br
+- 🐛 **Issues**:
+  [GitHub Issues](https://github.com/fabiotheo/ipcom-marketing-ai/issues)
+- 📚 **Docs**:
+  [Full Documentation](https://github.com/fabiotheo/ipcom-marketing-ai/wiki)
+
+---
+
+## 📚 Complete Documentation
+
+### Available Tools
+
+| Tool                              | Description                | Key Features                                           |
+| --------------------------------- | -------------------------- | ------------------------------------------------------ |
+| `use_marketing_ai`                | Natural language interface | Auto-detect language, Extract context, Start interview |
+| `quick_start_persona`             | Quick persona creation     | Auto language, Simple input, Fast start                |
+| `create_interactive_persona`      | Buyer persona generator    | Bilingual, 5 Rings, Quality scoring                    |
+| `analyze_content_multi_framework` | Multi-framework analysis   | IDEAL, STEPPS, E-E-A-T, GDocP                          |
+| `analyze_content_batch`           | Batch processing           | Parallel, Priority queue                               |
+| `get_marketing_frameworks_2025`   | Marketing methodologies    | IDEAL, STEPPS, RACE, STP                               |
+| `get_technical_writing_2025`      | Technical documentation    | GDocP, Docs-as-Code                                    |
+| `get_seo_frameworks_2025`         | SEO optimization           | E-E-A-T, Entity-Based                                  |
+| `get_editing_codes`               | Content editing system     | Semantic editing codes                                 |
+| `get_writing_guide`               | Writing methodology        | Technical writing guide                                |
+| `get_meta_guide`                  | Meta information           | SEO metadata creation                                  |
+| `get_value_map_positioning_guide` | Product positioning        | Value communication                                    |
+| `get_on_page_seo_guide`           | SEO optimization           | On-page SEO guide                                      |
+| `health_check`                    | System status              | Performance metrics                                    |
+
+### Configuration Options
+
+Environment variables for customization:
+
+```bash
+# Cache settings
+CACHE_MAX_SIZE=100           # Maximum cache entries
+CACHE_TTL_SECONDS=3600       # Cache time-to-live
+CACHE_ENABLE_PERSISTENCE=true # Persist cache to disk
+
+# Batch processing
+BATCH_MAX_SIZE=50            # Max items per batch
+BATCH_PARALLEL_WORKERS=4     # Concurrent workers
+BATCH_TIMEOUT_SECONDS=300    # Batch timeout
+
+# Analysis limits
+MAX_ANALYSIS_CONTENT_LENGTH=100000  # Max content size
+STRICT_FRAMEWORK_VALIDATION=false   # Strict validation
+
+# Logging
+LOG_LEVEL=INFO               # DEBUG, INFO, WARNING, ERROR
+```
+
+---
+
+## 🚀 Roadmap
+
+### Phase 1: UX & Accessibility ✅
+
+- [x] Zero-config setup
+- [x] Standalone demo mode
+- [x] Bilingual support
+- [x] Auto-configuration script
+- [x] Enhanced error messages
+
+### Phase 2: Framework Expansion (Q1 2025)
+
+- [ ] Jobs-to-be-Done framework
+- [ ] StoryBrand methodology
+- [ ] Content Design System
+- [ ] Accessibility frameworks
+
+### Phase 3: AI Enhancement (Q2 2025)
+
+- [ ] Custom persona templates
+- [ ] Industry-specific models
+- [ ] Competitive analysis
+- [ ] Content suggestions
+
+### Phase 4: Enterprise Features (Q3 2025)
+
+- [ ] Team collaboration
+- [ ] Export integrations
+- [ ] API access
+- [ ] Analytics dashboard
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Here's how to get involved:
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ### Development Setup
 
-1. **Fork the Repository**
-
 ```bash
-git clone https://github.com/yourusername/osp_marketing_tools.git
-cd osp_marketing_tools
+# Clone repository
+git clone https://github.com/fabiotheo/ipcom-marketing-ai.git
+cd ipcom-marketing-ai
+
+# Install dependencies
+pip install -e ".[dev]"
+
+# Run tests
+pytest
+
+# Run demo
+python demo_standalone.py
 ```
-
-2. **Set Up Development Environment**
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -e .[dev]
-```
-
-3. **Run Tests**
-
-```bash
-pytest tests/
-```
-
-### Contribution Guidelines
-
-#### 🐛 **Bug Reports**
-
-- Use the bug report template
-- Include reproduction steps
-- Provide system information
-- Add relevant logs
-
-#### ✨ **Feature Requests**
-
-- Use the feature request template
-- Explain the use case
-- Provide implementation details
-- Consider backward compatibility
-
-#### 🔧 **Pull Requests**
-
-- Fork and create a feature branch
-- Write tests for new functionality
-- Update documentation
-- Follow code style guidelines
-- Sign commits with DCO
-
-### Code Style
-
-**Python Standards:**
-
-```bash
-# Format code
-black src/ tests/
-# Check style
-flake8 src/ tests/
-# Type checking
-mypy src/
-```
-
-**Documentation:**
-
-```bash
-# Build docs locally
-mkdocs serve
-```
-
-### Testing
-
-**Run All Tests:**
-
-```bash
-pytest tests/ -v
-```
-
-**Test Coverage:**
-
-```bash
-pytest --cov=osp_marketing_tools tests/
-```
-
-**Integration Tests:**
-
-```bash
-pytest tests/integration/ -v
-```
-
----
-
-## 📋 Roadmap
-
-### 🚀 Version 0.3.6 (Q1 2025) - CURRENT
-
-- [x] **Interactive Buyer Persona Generator** - Complete bilingual implementation
-- [x] **Bilingual Support** - English and Portuguese Brazilian  
-- [x] **5 Rings Methodology** - Adele Revella's proven framework
-- [x] **Quality Assurance** - Confidence scoring and validation
-- [x] **Market Research Integration** - Automated persona enrichment
-
-### 🚀 Version 0.4.0 (Q1 2025)
-
-- [ ] Configurable tool parameters
-- [ ] Advanced content analysis
-- [ ] Performance optimizations
-- [ ] Extended framework library
-
-### 🎯 Version 0.5.0 (Q2 2025)
-
-- [ ] Real-time collaboration features
-- [ ] Advanced analytics dashboard
-- [ ] Additional language support (Spanish, French)
-- [ ] Enterprise SSO integration
-
-### 📈 Version 0.5.0 (Q3 2025)
-
-- [ ] AI-powered content suggestions
-- [ ] Automated quality scoring
-- [ ] Custom framework creation
-- [ ] Advanced reporting tools
-
-### 🌟 Future Enhancements
-
-- [ ] Visual content creation tools
-- [ ] Advanced SEO analytics
-- [ ] Content performance tracking
-- [ ] Team collaboration features
-
-### 📊 Competitive Positioning Goals
-
-| Metric                    | Current      | Target (v0.5.0) | Industry Leader |
-| ------------------------- | ------------ | --------------- | --------------- |
-| **Documentation Quality** | 500+ lines   | 750+ lines      | 800+ lines      |
-| **Tool Count**            | 11 tools     | 20+ tools       | 25+ tools       |
-| **Framework Coverage**    | 8 frameworks | 15+ frameworks  | 20+ frameworks  |
-| **Configuration Options** | Basic        | Advanced        | Enterprise      |
 
 ---
 
 ## 📄 License
 
-This software is licensed under the **Creative Commons Attribution-ShareAlike
-4.0 International License**.
+**Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**
 
-### 📋 **License Summary**
+You are free to:
 
-✅ **You are free to:**
+- ✅ **Share** - Copy and redistribute
+- ✅ **Adapt** - Remix, transform, and build upon
+- ✅ **Commercial** - Use for commercial purposes
 
-- **Share**: Copy and redistribute the material in any medium or format
-- **Adapt**: Remix, transform, and build upon the material for any purpose, even
-  commercially
+Under the following terms:
 
-📝 **Under the following terms:**
-
-- **Attribution**: You must give appropriate credit to Open Strategy Partners,
-  provide a link to the license, and indicate if changes were made
-- **ShareAlike**: If you remix, transform, or build upon the material, you must
-  distribute your contributions under the same license as the original
-
-### 🔗 **License Links**
-
-- [Full License Text](https://creativecommons.org/licenses/by-sa/4.0/)
-- [License Deed](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
-- [Legal Code](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
+- **Attribution** - Give appropriate credit
+- **ShareAlike** - Distribute contributions under same license
 
 ---
 
-## 📞 Support & Attribution
+## 🙏 Acknowledgments
 
-### 🏢 **Open Strategy Partners**
-
-This software implements the content creation and optimization methodologies
-developed by [Open Strategy Partners](https://openstrategypartners.com).
-
-**🔗 Resources:**
-
-- [OSP Writing and Editing Guide](https://openstrategypartners.com/osp-writing-editing-guide/)
-- [Editing Codes Quickstart](https://openstrategypartners.com/blog/osp-editing-codes-quick-start-guide/)
-- [OSP Free Resources](https://openstrategypartners.com/resources/)
-- [Agentic AI Vision Paper](https://openstrategypartners.com/blog/mastering-llm-interaction-preparing-marketing-teams-for-agentic-ai-success-with-mcp/)
-
-### 💬 **Getting Support**
-
-| Support Type                | Contact Method                                                                                  | Response Time |
-| --------------------------- | ----------------------------------------------------------------------------------------------- | ------------- |
-| **Documentation**           | Check this README                                                                               | Immediate     |
-| **Bug Reports**             | [GitHub Issues](https://github.com/open-strategy-partners/osp_marketing_tools/issues)           | 1-3 days      |
-| **Feature Requests**        | [GitHub Discussions](https://github.com/open-strategy-partners/osp_marketing_tools/discussions) | 1 week        |
-| **Professional Consulting** | [Contact OSP](https://openstrategypartners.com/contact/)                                        | 24 hours      |
-| **Community Support**       | [MCP Community](https://github.com/modelcontextprotocol/servers)                                | Variable      |
-
-### 🙏 **Acknowledgments**
-
-Special thanks to:
-
-- **Anthropic** for developing the Model Context Protocol
-- **Claude Desktop Team** for MCP integration
-- **Open Strategy Partners** for methodologies and frameworks
-- **Contributors** who help improve these tools
-- **Community** for feedback and suggestions
+- **Adele Revella** - Buyer Personas methodology
+- **Open Strategy Partners** - Core methodologies
+- **Anthropic** - Model Context Protocol
+- **Community** - Feedback and contributions
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by the OSP Community**
+**Built with ❤️ by [IPCOM](https://ipcom.com.br) &
+[Open Strategy Partners](https://openstrategypartners.com)**
 
-[⭐ Star this repository](https://github.com/open-strategy-partners/osp_marketing_tools)
-•
-[🐛 Report a bug](https://github.com/open-strategy-partners/osp_marketing_tools/issues)
-•
-[💡 Request a feature](https://github.com/open-strategy-partners/osp_marketing_tools/discussions)
-
-**Enhanced with 2025 Frameworks • Professional Grade • Community Driven**
+[Report Bug](https://github.com/fabiotheo/ipcom-marketing-ai/issues) •
+[Request Feature](https://github.com/fabiotheo/ipcom-marketing-ai/issues) •
+[Documentation](https://github.com/fabiotheo/ipcom-marketing-ai/wiki)
 
 </div>

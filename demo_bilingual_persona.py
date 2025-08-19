@@ -12,8 +12,8 @@ from pathlib import Path
 # Adicionar src ao path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-from osp_marketing_tools.interview_engine import InterviewEngine
 from osp_marketing_tools.i18n_questions import QuestionTranslations
+from osp_marketing_tools.interview_engine import InterviewEngine
 
 
 def demo_language_selection():

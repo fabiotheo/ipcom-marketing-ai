@@ -46,7 +46,9 @@
       "Bash(npx ipcom-marketing-ai:*)",
       "Bash(npx:*)",
       "Bash(claude:*)",
-      "Bash(npm cache clean:*)"
+      "Bash(npm cache clean:*)",
+      "mcp__zen__planner",
+      "Bash(echo:*)"
     ],
     "deny": [],
     "ask": [],
