@@ -186,7 +186,7 @@ class MarketResearchResult:
 
     query: str
     results: List[str]
-    source: str  # "duckduckgo", "fallback", "manual"
+    source: str  # "ddgs", "fallback", "manual"
     success: bool = True
     error_message: str = ""
     timestamp: datetime = field(default_factory=datetime.now)

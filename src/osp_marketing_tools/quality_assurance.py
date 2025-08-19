@@ -136,7 +136,7 @@ class ConfidenceScorer:
         text_parts = []
 
         if hasattr(ring_data, "__dict__"):
-            for key, value in ring_data.__dict__.items():
+            for _key, value in ring_data.__dict__.items():
                 if isinstance(value, str):
                     text_parts.append(value)
                 elif isinstance(value, list):
@@ -161,7 +161,7 @@ class ConfidenceScorer:
         total_fields = 0
 
         if hasattr(ring_data, "__dict__"):
-            for key, value in ring_data.__dict__.items():
+            for _key, value in ring_data.__dict__.items():
                 total_fields += 1
                 if value:  # Non-empty
                     if isinstance(value, (list, dict)):
@@ -396,8 +396,8 @@ class RingQualityGate:
 
         if alignment_score < 0.3:  # 30% threshold
             inconsistencies.append(
-                f"Priority Initiative themes don't align with Success Factors. "
-                f"Consider whether the expected outcomes address the triggering problems."
+                "Priority Initiative themes don't align with Success Factors. "
+                "Consider whether the expected outcomes address the triggering problems."
             )
 
         return ValidationResult(
@@ -423,18 +423,19 @@ class RingQualityGate:
 
         inconsistencies = []
 
-        # Map barriers to journey stages
-        barrier_mapping = {
-            "awareness": ["budget", "time", "knowledge", "priority", "resource"],
-            "consideration": [
-                "features",
-                "comparison",
-                "trust",
-                "complexity",
-                "integration",
-            ],
-            "decision": ["approval", "implementation", "risk", "support", "cost"],
-        }
+        # Map barriers to journey stages (for future use)
+        # Note: Currently not used in validation logic but kept for reference
+        # barrier_mapping = {
+        #     "awareness": ["budget", "time", "knowledge", "priority", "resource"],
+        #     "consideration": [
+        #         "features",
+        #         "comparison",
+        #         "trust",
+        #         "complexity",
+        #         "integration",
+        #     ],
+        #     "decision": ["approval", "implementation", "risk", "support", "cost"],
+        # }
 
         barriers_text = self._extract_text_from_object(barriers).lower()
         journey_text = self._extract_text_from_object(journey).lower()
@@ -866,19 +867,23 @@ class PersonaQualityOrchestrator:
         """Apply fallback data to enhance low-confidence areas."""
         enhanced_data = persona_data
 
-        industry = persona_data.demographics.industry or "generic"
-        company_size = persona_data.demographics.company_size or "medium"
+        # Note: Variables prepared for future fallback enhancement implementation
+        # industry = persona_data.demographics.industry or "generic"
+        # company_size = persona_data.demographics.company_size or "medium"
 
         for ring_name, confidence in confidence_scores.items():
             if confidence < 60.0:  # Low confidence threshold
-                ring_type = RingType(ring_name)
-                fallback_data = self.fallback_provider.get_ring_fallback(
-                    ring_type, industry, company_size
-                )
+                # Note: ring_type prepared for future fallback enhancement implementation
+                # ring_type = RingType(ring_name)
+                # Get fallback data for potential future enhancement
+                # fallback_data = self.fallback_provider.get_ring_fallback(
+                #     ring_type, industry, company_size
+                # )
 
-                # Merge fallback data (basic implementation)
+                # Log enhancement opportunity
                 logger.info(
-                    f"Applying fallback data for {ring_name} (confidence: {confidence:.1f}%)"
+                    f"Low confidence detected for {ring_name} (confidence: {confidence:.1f}%) - "
+                    f"enhancement opportunity identified"
                 )
                 # Note: In production, implement sophisticated merging logic
 

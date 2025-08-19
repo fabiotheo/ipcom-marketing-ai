@@ -1,6 +1,6 @@
 """Market Research Engine for Interactive Buyer Persona Generator.
 
-Implements intelligent web search with DuckDuckGo, rate limiting,
+Implements intelligent web search with DDGS, rate limiting,
 and fallback strategies based on the 5 Rings methodology.
 """
 
@@ -10,11 +10,11 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 try:
-    from duckduckgo_search import DDGS
+    from ddgs import DDGS
 except ImportError:
     DDGS = None
     logging.warning(
-        "duckduckgo-search not available. Install with: pip install duckduckgo-search"
+        "ddgs not available. Install with: pip install ddgs"
     )
 
 from .config import Config
@@ -178,7 +178,7 @@ class MarketResearchEngine:
 
         if not self.search_engine:
             logger.warning(
-                "DuckDuckGo search not available. Will use fallback data only."
+                "DDGS search not available. Will use fallback data only."
             )
 
     async def conduct_batch_research(
@@ -218,7 +218,7 @@ class MarketResearchEngine:
                 results[task["task_id"]] = MarketResearchResult(
                     query=task["query"],
                     results=search_results,
-                    source="duckduckgo" if search_results else "fallback",
+                    source="ddgs" if search_results else "fallback",
                     success=bool(search_results),
                 )
 
@@ -249,13 +249,13 @@ class MarketResearchEngine:
             return self.fallback_provider.get_generic_data(query)
 
         try:
-            # Strategy 1: DuckDuckGo search
+            # Strategy 1: DDGS search
             results = self.search_engine.text(query, max_results=max_results)
             if results:
                 return [r.get("body", "")[:200] for r in results if r.get("body")]
 
         except Exception as e1:
-            logger.warning(f"DuckDuckGo search failed: {e1}")
+            logger.warning(f"DDGS search failed: {e1}")
 
             try:
                 # Strategy 2: Simplified query
@@ -297,7 +297,7 @@ class MarketResearchEngine:
                 results[task_id] = MarketResearchResult(
                     query=query,
                     results=search_results,
-                    source="duckduckgo" if search_results else "fallback",
+                    source="ddgs" if search_results else "fallback",
                     success=bool(search_results),
                 )
 
