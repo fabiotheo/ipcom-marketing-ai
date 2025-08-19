@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "osp-marketing-tools"
-version = "0.3.0"
-description = "OSP Marketing Tools using Model Context Protocol - Enhanced with 2025 Frameworks"
+version = "0.3.6"
+description = "OSP Marketing Tools using Model Context Protocol - Enhanced with 2025 Frameworks and Interactive Buyer Persona Generator with bilingual support"
 authors = [
     {name = "Robert Douglass, Tracy Evans, Jeffrey McGuire, other Open Strategy Partners contributors"}
 ]

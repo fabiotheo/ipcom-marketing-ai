@@ -909,7 +909,7 @@ class PersonaQualityOrchestrator:
                 )
 
         # Suggestions from validation results
-        for validation_name, result in validation_results.items():
+        for _validation_name, result in validation_results.items():
             if not result.passed:
                 suggestions.extend(result.suggestions)
 

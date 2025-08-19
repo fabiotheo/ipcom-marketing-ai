@@ -9,6 +9,7 @@ import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
+from .i18n_questions import QuestionTranslations
 from .persona_data_structures import (
     BuyerJourney,
     DecisionCriteria,
@@ -25,9 +26,15 @@ logger = logging.getLogger(__name__)
 
 
 class InterviewQuestionBank:
-    """Structured question bank based on Adele Revella's 5 Rings methodology."""
+    """Structured question bank based on Adele Revella's 5 Rings methodology with bilingual support."""
 
-    # Core questions for each Ring
+    def __init__(self, language: str = "en"):
+        """Initialize with specified language."""
+        self.language = (
+            language if QuestionTranslations.is_supported_language(language) else "en"
+        )
+
+    # Core questions for each Ring (now deprecated - use i18n_questions)
     RING_QUESTIONS = {
         RingType.PRIORITY_INITIATIVE: [
             {
@@ -159,16 +166,16 @@ class InterviewQuestionBank:
     ]
 
     def get_questions_for_ring(self, ring_type: RingType) -> List[Dict[str, Any]]:
-        """Get all questions for a specific ring."""
-        return self.RING_QUESTIONS.get(ring_type, [])
+        """Get all questions for a specific ring in the current language."""
+        return QuestionTranslations.get_questions_for_ring(ring_type, self.language)
 
     def get_question_by_id(self, question_id: str) -> Optional[Dict[str, Any]]:
-        """Get a specific question by its ID."""
-        for ring_questions in self.RING_QUESTIONS.values():
-            for question in ring_questions:
-                if question["id"] == question_id:
-                    return question
+        """Get a specific question by its ID in the current language."""
+        question = QuestionTranslations.get_question_by_id(question_id, self.language)
+        if question:
+            return question
 
+        # Fallback to demographic questions (these don't have translations yet)
         for question in self.DEMOGRAPHIC_QUESTIONS:
             if question["id"] == question_id:
                 return question
@@ -177,10 +184,14 @@ class InterviewQuestionBank:
 
 
 class InterviewEngine:
-    """Manages the interview flow and data collection process."""
+    """Manages the interview flow and data collection process with bilingual support."""
 
-    def __init__(self):
-        self.question_bank = InterviewQuestionBank()
+    def __init__(self, language: str = "en"):
+        """Initialize with specified language (en or pt-br)."""
+        self.language = (
+            language if QuestionTranslations.is_supported_language(language) else "en"
+        )
+        self.question_bank = InterviewQuestionBank(self.language)
         self.active_sessions: Dict[str, InterviewSession] = {}
 
     def start_interview(self, product_context: str = "") -> Tuple[str, Dict[str, Any]]:
@@ -205,7 +216,7 @@ class InterviewEngine:
             "session_id": session_id,
             "question": first_question,
             "progress": self._get_progress_info(session),
-            "context": "We'll explore your buying situation using Adele Revella's proven methodology. This should take about 10-15 minutes.",
+            "context": QuestionTranslations.get_interview_context(self.language),
         }
 
     def answer_question(self, session_id: str, response: str) -> Dict[str, Any]:
@@ -274,12 +285,13 @@ class InterviewEngine:
     def _format_question(
         self, question: Dict[str, Any], ring_type: RingType
     ) -> Dict[str, Any]:
-        """Format question with ring context."""
+        """Format question with ring context and localization."""
         return {
             "id": question["id"],
             "text": question["question"],
             "context": question.get("context", ""),
             "ring": ring_type.value,
+            "ring_name": QuestionTranslations.get_ring_name(ring_type, self.language),
             "required": question.get("required", False),
         }
 

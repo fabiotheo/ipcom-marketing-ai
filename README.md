@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue?style=flat-square)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square)
 ![MCP](https://img.shields.io/badge/MCP-compatible-green?style=flat-square)
-![Version](https://img.shields.io/badge/version-0.3.0-brightgreen?style=flat-square)
+![Version](https://img.shields.io/badge/version-0.3.6-brightgreen?style=flat-square)
 ![Frameworks](https://img.shields.io/badge/frameworks-2025-orange?style=flat-square)
 ![](https://badge.mcpx.dev?type=server)
 
@@ -153,6 +153,17 @@ Intelligent content analysis and optimization:
 - **⚡ High Performance** - 4ms average single framework analysis, 2ms
   multi-framework
 - **🔍 Quality Assurance** - Comprehensive testing with automated CI/CD pipeline
+
+### 🎭 **Interactive Buyer Persona Generator (NEW!)**
+
+Evidence-based buyer persona creation using Adele Revella's proven methodology:
+
+- **🗣️ Bilingual Support** - Complete interview system in English and Portuguese Brazilian
+- **🎯 5 Rings Methodology** - Priority Initiative, Success Factors, Perceived Barriers, Decision Criteria, Buyer's Journey
+- **🔬 Quality Assurance** - Confidence scoring and cross-ring validation
+- **📊 Market Research Integration** - Automated research to enrich personas
+- **🌍 Localized Experience** - Culturally appropriate questions and context
+- **⚡ Real-time Interview** - Dynamic questioning with context-aware follow-ups
 
 ### 🚀 **Batch Processing & Performance (v0.3.0)**
 
@@ -447,6 +458,42 @@ services:
 
 Explore o poder de cada ferramenta com exemplos práticos, do básico ao avançado.
 
+### 🎭 Interactive Buyer Persona Generator
+
+**Start Bilingual Interview:**
+
+```
+Create an interactive buyer persona in Portuguese for our AI productivity platform targeting Brazilian developers.
+```
+
+**English Interview:**
+
+```
+create_interactive_persona(
+    product_context="AI-powered development tools for enterprise teams",
+    language="en"
+)
+```
+
+**Portuguese Interview:**
+
+```
+create_interactive_persona(
+    product_context="Plataforma de IA para produtividade de equipes de desenvolvimento",
+    language="pt-br"
+)
+```
+
+**Continue Interview Process:**
+
+```
+continue_persona_interview(
+    session_id="your-session-id",
+    response="Our team was losing 3+ hours daily organizing emails and tasks manually",
+    language="en"
+)
+```
+
 ### 🗺️ Value Map Generation
 
 **Basic Usage:**
@@ -655,6 +702,14 @@ Run comprehensive health check and return cache performance metrics, methodology
 | `get_seo_frameworks_2025()`         | Next-gen SEO optimization        | E-E-A-T, Entity-Based SEO | Core Web Vitals integration  |
 | `analyze_content_multi_framework()` | Cross-framework content analysis | All 2025 frameworks       | Comparative insights         |
 | `get_methodology_versions()`        | Framework version management     | Version tracking          | Update notifications         |
+
+### 🎭 Interactive Buyer Persona Tools (NEW!)
+
+| Tool                           | Purpose                       | Languages  | Features                     |
+| ------------------------------ | ----------------------------- | ---------- | ---------------------------- |
+| `create_interactive_persona()` | Start bilingual persona interview | EN, PT-BR  | 5 Rings methodology, Quality scoring |
+| `continue_persona_interview()` | Continue persona interview    | EN, PT-BR  | Dynamic questions, Follow-ups |
+| `get_persona_interview_status()` | Check interview progress     | All        | Progress tracking, Summary   |
 
 ### 🔧 System Tools
 
@@ -1103,18 +1158,26 @@ pytest tests/integration/ -v
 
 ## 📋 Roadmap
 
-### 🚀 Version 0.3.0 (Q1 2025)
+### 🚀 Version 0.3.6 (Q1 2025) - CURRENT
+
+- [x] **Interactive Buyer Persona Generator** - Complete bilingual implementation
+- [x] **Bilingual Support** - English and Portuguese Brazilian  
+- [x] **5 Rings Methodology** - Adele Revella's proven framework
+- [x] **Quality Assurance** - Confidence scoring and validation
+- [x] **Market Research Integration** - Automated persona enrichment
+
+### 🚀 Version 0.4.0 (Q1 2025)
 
 - [ ] Configurable tool parameters
 - [ ] Advanced content analysis
 - [ ] Performance optimizations
 - [ ] Extended framework library
 
-### 🎯 Version 0.4.0 (Q2 2025)
+### 🎯 Version 0.5.0 (Q2 2025)
 
 - [ ] Real-time collaboration features
 - [ ] Advanced analytics dashboard
-- [ ] Multi-language support
+- [ ] Additional language support (Spanish, French)
 - [ ] Enterprise SSO integration
 
 ### 📈 Version 0.5.0 (Q3 2025)

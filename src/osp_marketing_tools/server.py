@@ -19,6 +19,7 @@ from .cache import AdvancedLRUCache, LRUCache
 from .cache import cache_manager as cache_mgr
 from .config import Config, config_manager
 from .persona_builder import PersonaBuilder
+from .i18n_questions import QuestionTranslations
 from .version import __version__
 
 
@@ -1256,7 +1257,7 @@ async def cleanup_expired_cache() -> Dict[str, Any]:
 @mcp.tool()
 @handle_exceptions
 async def create_interactive_persona(
-    product_context: str = "", start_interview: bool = True
+    product_context: str = "", start_interview: bool = True, language: str = "en"
 ) -> Dict[str, Any]:
     """Create an Interactive Buyer Persona using Adele Revella's 5 Rings of Buying Insight methodology.
 
@@ -1266,6 +1267,7 @@ async def create_interactive_persona(
     Args:
         product_context: Optional context about the product/service for personalized questions
         start_interview: Whether to immediately start the interview session (default: True)
+        language: Language for the interview ("en" for English, "pt-br" for Portuguese Brazilian)
 
     Returns:
         Dict containing either the interview session info or complete persona data
@@ -1273,10 +1275,25 @@ async def create_interactive_persona(
     logger.info("Starting Interactive Buyer Persona Generator")
 
     try:
+        # Validate language
+        if not QuestionTranslations.is_supported_language(language):
+            available_languages = QuestionTranslations.get_language_info()
+            return {
+                "success": False,
+                "error": f"Unsupported language '{language}'. Available languages: {list(available_languages.keys())}",
+                "error_type": "language_validation",
+                "available_languages": available_languages,
+            }
+
+        # Initialize persona builder with specified language
+        bilingual_persona_builder = PersonaBuilder(language=language)
+
         if start_interview:
             # Start new interview session
-            session_id, session_info = persona_builder.interview_engine.start_interview(
-                product_context=product_context
+            session_id, session_info = (
+                bilingual_persona_builder.interview_engine.start_interview(
+                    product_context=product_context
+                )
             )
 
             return {
@@ -1287,6 +1304,8 @@ async def create_interactive_persona(
                     "first_question": session_info["question"],
                     "progress": session_info["progress"],
                     "context": session_info["context"],
+                    "language": language,
+                    "language_info": QuestionTranslations.get_language_info(language),
                     "methodology": "Adele Revella's 5 Rings of Buying Insight",
                     "expected_duration": "10-15 minutes",
                     "instructions": {
@@ -1317,7 +1336,9 @@ async def create_interactive_persona(
                         "Cross-ring validation for logical consistency",
                         "Industry-specific fallback data",
                         "Comprehensive persona output with actionable insights",
+                        "Bilingual support (English and Portuguese Brazilian)",
                     ],
+                    "supported_languages": QuestionTranslations.get_language_info(),
                     "five_rings": {
                         "priority_initiative": "What triggers the buying decision - the specific event that makes solving this problem a priority",
                         "success_factors": "What the buyer hopes to achieve - both business outcomes and personal wins",
@@ -1339,7 +1360,7 @@ async def create_interactive_persona(
                         "healthtech",
                         "generic",
                     ],
-                    "usage": "Call this tool with start_interview=True to begin the persona creation process",
+                    "usage": "Call this tool with start_interview=True and language='en' or 'pt-br' to begin the persona creation process",
                 },
                 "metadata": {
                     "methodology": "interactive_buyer_persona_generator",
@@ -1361,12 +1382,15 @@ async def create_interactive_persona(
 
 @mcp.tool()
 @handle_exceptions
-async def continue_persona_interview(session_id: str, response: str) -> Dict[str, Any]:
+async def continue_persona_interview(
+    session_id: str, response: str, language: str = "en"
+) -> Dict[str, Any]:
     """Continue an active persona interview session by providing an answer to the current question.
 
     Args:
         session_id: The session ID from create_interactive_persona
         response: Your answer to the current interview question
+        language: Language for the interview (should match the session language)
 
     Returns:
         Dict containing next question or completion status with final persona
@@ -1380,8 +1404,11 @@ async def continue_persona_interview(session_id: str, response: str) -> Dict[str
         if not response or not response.strip():
             raise ValueError("response is required and cannot be empty")
 
+        # Create bilingual persona builder with specified language
+        bilingual_persona_builder = PersonaBuilder(language=language)
+
         # Process the response
-        interview_result = persona_builder.interview_engine.answer_question(
+        interview_result = bilingual_persona_builder.interview_engine.answer_question(
             session_id, response
         )
 
@@ -1392,8 +1419,10 @@ async def continue_persona_interview(session_id: str, response: str) -> Dict[str
             )
 
             try:
-                final_persona = await persona_builder.build_persona_from_interview(
-                    session_id=session_id, persona_name=f"Persona_{session_id[:8]}"
+                final_persona = (
+                    await bilingual_persona_builder.build_persona_from_interview(
+                        session_id=session_id, persona_name=f"Persona_{session_id[:8]}"
+                    )
                 )
 
                 return {

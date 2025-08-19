@@ -29,8 +29,10 @@ logger = logging.getLogger(__name__)
 class PersonaBuilder:
     """Core orchestrator for the persona generation process."""
 
-    def __init__(self):
-        self.interview_engine = InterviewEngine()
+    def __init__(self, language: str = "en"):
+        """Initialize with specified language support."""
+        self.language = language
+        self.interview_engine = InterviewEngine(language=language)
         self.research_engine = MarketResearchEngine()
         self.quality_orchestrator = PersonaQualityOrchestrator()
         self.fallback_provider = FallbackDataProvider()

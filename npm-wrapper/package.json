@@ -1,7 +1,7 @@
 {
   "name": "ipcom-marketing-ai",
-  "version": "0.3.5",
-  "description": "Model Context Protocol (MCP) server for comprehensive AI-powered marketing tools with 2025 frameworks including IDEAL, STEPPS, E-E-A-T, and GDocP. Features batch processing, advanced caching, and enterprise-grade content analysis.",
+  "version": "0.3.6",
+  "description": "Model Context Protocol (MCP) server for comprehensive AI-powered marketing tools with 2025 frameworks including IDEAL, STEPPS, E-E-A-T, and GDocP. Features Interactive Buyer Persona Generator with bilingual support (EN/PT-BR), batch processing, advanced caching, and enterprise-grade content analysis.",
   "keywords": [
     "mcp",
     "model-context-protocol",
@@ -12,6 +12,13 @@
     "STEPPS",
     "E-E-A-T",
     "GDocP",
+    "buyer-persona",
+    "bilingual",
+    "portuguese",
+    "english",
+    "interview",
+    "adele-revella",
+    "5-rings",
     "batch-processing",
     "cache",
     "ai-tools",
